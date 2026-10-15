@@ -14,7 +14,7 @@
 .grid { display: grid; grid-template-columns: minmax(0, 1.95fr) repeat(4, minmax(0, 1fr)); gap: clamp(18px, 1.85vw, 30px); align-items: stretch; }
 .intro { padding-right: clamp(12px, 2vw, 32px); }
 .eyebrow { margin: 0 0 12px; color: var(--services-muted); font-size: 10px; font-weight: var(--studio-label-weight); letter-spacing: var(--studio-label-tracking); text-transform: uppercase; }
-.heading { margin: 0; font-size: clamp(42px, 4.7vw, 72px); font-weight: var(--studio-heading-weight); line-height: var(--studio-heading-leading); letter-spacing: var(--studio-heading-tracking); }
+.heading { margin: 0; font-size: var(--studio-section-title-size); font-weight: var(--studio-heading-weight); line-height: var(--studio-heading-leading); letter-spacing: var(--studio-heading-tracking); }
 .heading > span { display: block; }
 .heading .accent { color: var(--services-accent); }
 .description { margin: 20px 0 0; max-width: 350px; font-size: clamp(13px, 1.16vw, 17px); font-weight: var(--studio-copy-weight); line-height: var(--studio-copy-leading); color: var(--services-muted); }
@@ -48,14 +48,12 @@
   .inner { padding-inline: 7.2%; }
   .grid { grid-template-columns: minmax(0, 1.95fr) repeat(4, minmax(0, 1fr)); gap: 18px; }
   .discipline { padding-left: 20px; }
-  .heading { font-size: 50px; }
 }
 
 @media (max-width: 999px) {
   .inner { padding-inline: 32px; }
   .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
   .intro { grid-column: 1 / -1; padding: 0; margin-bottom: 18px; }
-  .heading { font-size: clamp(48px, 7vw, 64px); }
   .heading > span:first-child { display: inline; }
   .heading > span:nth-child(2) { display: inline; }
   .heading > span:first-child::after { content: " "; }
@@ -70,7 +68,6 @@
   .inner { padding-inline: 22px; }
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 20px; }
   .intro { margin-bottom: 4px; }
-  .heading { font-size: clamp(39px, 10.8vw, 61px); }
   .heading > span:first-child, .heading > span:nth-child(2) { display: block; }
   .heading > span:first-child::after { content: none; }
   .description { max-width: 340px; margin-top: 18px; }
