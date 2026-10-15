@@ -1,0 +1,125 @@
+.presence-section {
+  background-color: var(--color-hero-bg);
+  color: #FFFFFF;
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.presence-glow {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(30, 60, 75, 0.35) 0%, rgba(17, 22, 25, 0) 70%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.presence-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1080px;
+}
+
+.presence-title {
+  font-size: clamp(32px, 4.4vw, 58px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+}
+
+.presence-lead {
+  font-size: 19px;
+  line-height: 1.55;
+  color: #9AA8AF;
+  max-width: 680px;
+  margin-bottom: 56px;
+}
+
+.presence-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 768px) {
+  .presence-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.presence-clock-card {
+  background: rgba(25, 33, 38, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all var(--transition-smooth);
+}
+
+.presence-clock-card:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.presence-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.presence-city {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+
+.presence-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  color: #A9B8BF;
+}
+
+.presence-time {
+  font-size: clamp(32px, 3.5vw, 44px);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+}
+
+.presence-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13.5px;
+  color: #8E9CA3;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 16px;
+}
+
+.presence-status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #52E09B;
+  margin-right: 6px;
+  box-shadow: 0 0 10px #52E09B;
+}
