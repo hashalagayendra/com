@@ -2,6 +2,7 @@
 
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
+import { FEATURED_PROJECTS } from "@/data/featuredProjects";
 
 interface FooterProps {
   onOpenContact: (department?: string) => void;
@@ -10,10 +11,10 @@ interface FooterProps {
 
 export default function Footer({ onOpenContact, onSelectCaseById }: FooterProps) {
   return (
-    <footer className="bg-white pt-20 border-t border-[#e2e6e4]">
+    <footer className="bg-white pt-20 border-t border-[#e2e6e4] [overflow-wrap:anywhere]">
       <div className="w-full max-w-[1440px] mx-auto px-6 md:px-8 pb-16">
-        {/* 6-Column Navigation Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 md:gap-6">
+        {/* Footer Navigation Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 md:gap-6">
           <div>
             <h4 className="text-[13px] font-bold uppercase tracking-wider text-[#84939b] mb-4 flex items-center justify-between">
               <span>Company</span>
@@ -52,62 +53,19 @@ export default function Footer({ onOpenContact, onSelectCaseById }: FooterProps)
               <ArrowUpRight size={14} className="opacity-40" />
             </h4>
             <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
-              <li>
-                <button
-                  onClick={() => onSelectCaseById("hayday")}
-                  className="text-[14.5px] text-[#2d393e] hover:text-[#0f1417] transition-colors bg-transparent border-none p-0 cursor-pointer text-left"
-                >
-                  Case: Hay Day
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onSelectCaseById("rovio")}
-                  className="text-[14.5px] text-[#2d393e] hover:text-[#0f1417] transition-colors bg-transparent border-none p-0 cursor-pointer text-left"
-                >
-                  Case: Rovio
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onSelectCaseById("polestar")}
-                  className="text-[14.5px] text-[#2d393e] hover:text-[#0f1417] transition-colors bg-transparent border-none p-0 cursor-pointer text-left"
-                >
-                  Case: Polestar
-                </button>
-              </li>
+              {FEATURED_PROJECTS.map((project) => (
+                <li key={project.id}>
+                  <button
+                    onClick={() => onSelectCaseById(project.id)}
+                    className="text-[14.5px] text-[#2d393e] hover:text-[#0f1417] transition-colors bg-transparent border-none p-0 cursor-pointer text-left"
+                  >
+                    {project.client.split(" · ")[0]}
+                  </button>
+                </li>
+              ))}
               <li>
                 <a href="#work" className="text-[14.5px] text-[#2d393e] hover:text-[#0f1417] transition-colors no-underline">
-                  More work
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-[13px] font-bold uppercase tracking-wider text-[#84939b] mb-4 flex items-center justify-between">
-              <span>Clients</span>
-              <ArrowUpRight size={14} className="opacity-40" />
-            </h4>
-            <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
-              <li>
-                <a href="#clients" className="text-[14.5px] text-[#2d393e] hover:text-[#0f1417] transition-colors no-underline">
-                  Established brands
-                </a>
-              </li>
-              <li>
-                <a href="#clients" className="text-[14.5px] text-[#2d393e] hover:text-[#0f1417] transition-colors no-underline">
-                  Growing brands
-                </a>
-              </li>
-              <li>
-                <a href="#clients" className="text-[14.5px] text-[#2d393e] hover:text-[#0f1417] transition-colors no-underline">
-                  New brands
-                </a>
-              </li>
-              <li>
-                <a href="#clients" className="text-[14.5px] text-[#2d393e] hover:text-[#0f1417] transition-colors no-underline">
-                  All clients
+                  Selected work
                 </a>
               </li>
             </ul>

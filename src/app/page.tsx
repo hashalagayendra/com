@@ -1,19 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-import AnnouncementBar from "@/components/AnnouncementBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Statement from "@/components/Statement";
-import CaseStudies from "@/components/CaseStudies";
+import SelectedWork from "@/components/SelectedWork";
 import CaseModal from "@/components/CaseModal";
-import ClientsMatrix from "@/components/ClientsMatrix";
 import Services from "@/components/Services";
 import GlobalPresence from "@/components/GlobalPresence";
-import ContactCallout from "@/components/ContactCallout";
 import ContactModal from "@/components/ContactModal";
 import Footer from "@/components/Footer";
-import { CASE_STUDIES, CaseStudy } from "@/data/cases";
+import type { CaseStudy } from "@/types/caseStudy";
+import { FEATURED_PROJECTS } from "@/data/featuredProjects";
 import { CheckCircle2 } from "lucide-react";
 
 export default function HomePage() {
@@ -35,16 +32,9 @@ export default function HomePage() {
   };
 
   const handleSelectCaseById = (id: string) => {
-    const found = CASE_STUDIES.find((c) => c.id === id);
+    const found = FEATURED_PROJECTS.find((c) => c.id === id);
     if (found) {
       setSelectedCase(found);
-    }
-  };
-
-  const handleOpenAbout = () => {
-    const el = document.getElementById("about");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -63,23 +53,14 @@ export default function HomePage() {
       {/* Cinematic Studio Hero (Exact reference match) */}
       <Hero onShowToast={showToast} onOpenContact={() => handleOpenContact()} />
 
-      {/* Editorial Benchmark Agency Statement */}
-      <Statement onOpenAbout={handleOpenAbout} />
-
-      {/* Featured Case Studies Grid */}
-      <CaseStudies onSelectCase={(c) => setSelectedCase(c)} />
-
-      {/* 200+ Brands & Client Testimonials Matrix */}
-      <ClientsMatrix onSelectCaseById={handleSelectCaseById} />
+      {/* Featured creative concepts */}
+      <SelectedWork onSelectCase={setSelectedCase} />
 
       {/* All-In-One Services & NPS */}
       <Services onOpenContact={() => handleOpenContact()} />
 
       {/* Global Locations & Real-time Live Clocks */}
       <GlobalPresence onOpenBouCo={handleOpenBouCo} />
-
-      {/* Pre-Footer Office Hubs */}
-      <ContactCallout onOpenContact={(city) => handleOpenContact(city)} />
 
       {/* Footer with Comprehensive Sitemap & Inquiry Bar */}
       <Footer

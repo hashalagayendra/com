@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { X, CheckCircle2 } from "lucide-react";
-import { CaseStudy } from "@/data/cases";
+import type { CaseStudy } from "@/types/caseStudy";
 
 interface CaseModalProps {
   caseStudy: CaseStudy | null;

@@ -1,0 +1,68 @@
+.section {
+  --work-ground: #100720;
+  --work-ink: #faf8ff;
+  --work-muted: #c6b9da;
+  --work-line: #74608e;
+  --work-caption: #0d061a;
+  position: relative;
+  padding: 64px 0 44px;
+  background: radial-gradient(ellipse at 75% 0%, #251044 0%, transparent 58%), var(--work-ground);
+  color: var(--work-ink);
+  scroll-margin-top: 72px;
+}
+
+.inner { max-width: 1600px; margin: 0 auto; scroll-margin-top: 100px; }
+.header { display: grid; grid-template-columns: 1.55fr 1fr auto; align-items: center; gap: 42px; padding: 0 4% 30px; }
+.eyebrow { margin: 0 0 8px; font-size: 10px; font-weight: 500; letter-spacing: 0.36em; text-transform: uppercase; }
+.title { margin: 0; font-size: clamp(48px, 6.1vw, 94px); font-weight: 800; line-height: 1; letter-spacing: -0.065em; white-space: nowrap; }
+.description { max-width: 330px; margin: 20px 0 0; color: var(--work-muted); font-size: 13px; font-weight: 400; line-height: 1.75; }
+.controls { display: flex; gap: 16px; margin-top: 12px; }
+.control { display: grid; place-items: center; width: 50px; height: 50px; padding: 0; border: 1px solid var(--work-line); border-radius: 50%; background: transparent; color: var(--work-ink); cursor: pointer; transition: background 180ms ease, border-color 180ms ease, transform 180ms ease; }
+.control:hover { background: #32204a; border-color: var(--work-muted); }
+.control:active { transform: scale(0.92); }
+.gallery { display: flex; gap: 6px; padding: 0 6px 4px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.gallery::-webkit-scrollbar { display: none; }
+.project { flex: 0 0 calc((100% - 18px) / 4); min-width: 0; padding: 0; border: 0; background: var(--work-caption); color: var(--work-ink); text-align: left; font: inherit; cursor: pointer; scroll-snap-align: start; }
+.imageWrap { position: relative; display: block; width: 100%; aspect-ratio: 0.715; overflow: hidden; background: #241333; }
+.image { object-fit: cover; transition: transform 650ms cubic-bezier(0.2, 0.65, 0.3, 1); }
+.project:hover .image { transform: scale(1.045); }
+.caption { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 76px; padding: 16px clamp(14px, 2.2vw, 32px); }
+.projectText { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.service { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+.projectTitle { color: var(--work-muted); font-size: clamp(11px, 1.05vw, 14px); line-height: 1.5; }
+.projectArrow { display: grid; place-items: center; flex-shrink: 0; width: 33px; height: 33px; border: 1px solid var(--work-muted); border-radius: 50%; transition: background 180ms ease, color 180ms ease, transform 180ms ease; }
+.project:hover .projectArrow { background: var(--work-ink); color: var(--work-ground); transform: translateX(2px); }
+.control:focus-visible, .project:focus-visible { outline: 2px solid var(--work-ink); outline-offset: -4px; }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+@media (max-width: 999px) {
+  .section { padding-top: 48px; }
+  .header { grid-template-columns: 1fr auto; gap: 20px; padding: 0 24px 28px; }
+  .title { font-size: clamp(48px, 8vw, 76px); }
+  .description { grid-row: 2; max-width: 420px; margin: 0; font-size: 14px; }
+  .controls { grid-column: 2; grid-row: 1 / 3; margin: 0; }
+  .gallery { padding-inline: 24px; gap: 10px; scroll-padding-inline: 24px; }
+  .project { flex-basis: calc((100% - 10px) / 2); }
+  .caption { padding: 18px; }
+  .projectTitle { font-size: 13px; }
+}
+
+@media (max-width: 599px) {
+  .section { padding: 38px 0 30px; }
+  .header { gap: 18px 12px; padding: 0 20px 26px; }
+  .titleBlock { grid-column: 1 / -1; }
+  .eyebrow { font-size: 9px; letter-spacing: 0.3em; margin-bottom: 10px; }
+  .title { font-size: clamp(42px, 11.5vw, 65px); }
+  .description { grid-row: 2; font-size: 12px; line-height: 1.7; }
+  .controls { grid-row: 2; gap: 8px; }
+  .control { width: 42px; height: 42px; }
+  .gallery { padding-inline: 20px; gap: 10px; scroll-padding-inline: 20px; }
+  .project { flex-basis: 87%; }
+  .caption { min-height: 80px; padding: 16px 20px; }
+  .projectTitle { font-size: 13px; }
+  .service { font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image, .control, .projectArrow { transition: none; }
+}

@@ -8,7 +8,7 @@ interface HeroProps {
   onOpenContact?: () => void;
 }
 
-export default function Hero(_props?: HeroProps) {
+export default function Hero(props?: HeroProps) {
   const handleScrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -103,22 +103,10 @@ export default function Hero(_props?: HeroProps) {
             </li>
             <li>
               <a
-                href="#clients"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleScrollTo("clients");
-                }}
-                className="text-[13px] lg:text-[13.5px] font-normal text-white/75 hover:text-white transition-colors tracking-normal no-underline"
-              >
-                Journal
-              </a>
-            </li>
-            <li>
-              <a
                 href="#contact"
                 onClick={(e) => {
                   e.preventDefault();
-                  handleScrollTo("contact");
+                  props?.onOpenContact?.();
                 }}
                 className="text-[13px] lg:text-[13.5px] font-normal text-white/75 hover:text-white transition-colors tracking-normal no-underline"
               >

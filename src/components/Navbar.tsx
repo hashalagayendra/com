@@ -25,7 +25,6 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
     { label: "Work", href: "#work" },
     { label: "Services", href: "#services" },
     { label: "Studio", href: "#about" },
-    { label: "Journal", href: "#clients" },
     { label: "Contact", href: "#contact" },
   ];
 
