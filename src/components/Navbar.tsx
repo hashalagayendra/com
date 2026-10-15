@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowUpRight, X } from "lucide-react";
+import { ArrowUpRight, ArrowRight, X } from "lucide-react";
 
 interface NavbarProps {
   onOpenContact: () => void;
@@ -11,21 +11,37 @@ interface NavbarProps {
 export default function Navbar({ onOpenContact }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("work");
 
   useEffect(() => {
     const handleScroll = () => {
-      // Appear smoothly once user scrolls down past the initial hero view
-      setScrolled(window.scrollY > 280);
+      // Appear once user scrolls past the hero
+      const scrollY = window.scrollY;
+      setScrolled(scrollY > 260);
+
+      // Simple active link highlight based on scroll position
+      const workEl = document.getElementById("work");
+      const servicesEl = document.getElementById("services");
+      const studioEl = document.getElementById("studio");
+
+      if (studioEl && scrollY >= studioEl.offsetTop - 200) {
+        setActiveSection("studio");
+      } else if (servicesEl && scrollY >= servicesEl.offsetTop - 200) {
+        setActiveSection("services");
+      } else if (workEl && scrollY >= workEl.offsetTop - 200) {
+        setActiveSection("work");
+      }
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { label: "Work", href: "#work" },
-    { label: "Services", href: "#services" },
-    { label: "Studio", href: "#studio" },
-    { label: "Contact", href: "#contact" },
+    { label: "Work", href: "#work", id: "work" },
+    { label: "Services", href: "#services", id: "services" },
+    { label: "Studio", href: "#studio", id: "studio" },
+    { label: "Contact", href: "#contact", id: "contact" },
   ];
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -45,84 +61,98 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-[900] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-        scrolled
-          ? "translate-y-0 opacity-100 pointer-events-auto bg-[#0a0814]/65 backdrop-blur-2xl border-b border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
-          : "-translate-y-full opacity-0 pointer-events-none"
-      }`}
-      aria-label="Sticky Navigation"
-    >
-      <div className="w-full px-6 sm:px-10 md:px-14 lg:px-20 py-3 sm:py-3.5 flex items-center justify-between">
-        {/* Brand Logo with Tagline underneath (Exact match with Hero section) */}
-        <div className="flex flex-col items-start">
+    <>
+      {/* ====================================================================
+          FLOATING DYNAMIC ISLAND GLASS CAPSULE NAVBAR
+          - Suspended centered floating pill
+          - Ultra-refined backdrop blur & glowing inner edge
+          - Segmented track navigation with active indicator
+          - Compact responsive layout
+          ==================================================================== */}
+      <nav
+        className={`fixed top-4 sm:top-5 left-1/2 -translate-x-1/2 z-[900] w-[92%] sm:w-auto transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          scrolled
+            ? "translate-y-0 opacity-100 scale-100 pointer-events-auto"
+            : "-translate-y-8 opacity-0 scale-95 pointer-events-none"
+        }`}
+        aria-label="Floating Navigation"
+      >
+        <div className="relative flex items-center justify-between gap-3 sm:gap-6 lg:gap-8 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#090715]/75 backdrop-blur-2xl border border-white/[0.12] shadow-[0_16px_40px_rgba(0,0,0,0.55),0_0_24px_rgba(124,58,237,0.18)]">
+          {/* Subtle top inner edge highlight for realistic glass depth */}
+          <div
+            className="absolute top-0 inset-x-6 h-[1px] bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none"
+            aria-hidden="true"
+          />
+
+          {/* Left: Compact Studio Logotype + Animated Purple Dot */}
           <Link
             href="#home"
-            className="text-[19px] sm:text-[20px] font-bold tracking-[-0.015em] uppercase text-[var(--studio-ink)] inline-flex items-baseline no-underline hover:opacity-90 transition-opacity"
+            className="flex items-center gap-1.5 text-[14px] sm:text-[15px] font-bold tracking-tight uppercase text-white hover:text-purple-200 transition-colors pl-1 no-underline shrink-0"
             title="YOUR STUDIO"
           >
-            YOUR STUDIO
-            <span className="text-[var(--studio-accent-soft)] text-[22px] sm:text-[24px] leading-none ml-[1.5px] inline-block drop-shadow-[0_0_10px_rgba(124,58,237,0.8)]">
-              .
-            </span>
+            <span>YOUR STUDIO</span>
+            <span
+              className="w-1.5 h-1.5 rounded-full bg-[#a78bfa] shadow-[0_0_8px_#a855f7] inline-block animate-pulse"
+              aria-hidden="true"
+            />
           </Link>
-          <span className="text-[9px] sm:text-[10px] font-medium tracking-[0.24em] uppercase text-[var(--studio-accent-soft)]/80 mt-0.5 block">
-            CREATIVE DIGITAL AGENCY
-          </span>
-        </div>
 
-        {/* Center Nav Links (Exact match with Hero navigation) */}
-        <nav aria-label="Header Navigation" className="hidden md:block">
-          <ul className="flex items-center gap-7 lg:gap-11 list-none m-0 p-0">
-            {navLinks.map((item) => (
-              <li key={item.label}>
+          {/* Center: Segmented Floating Track Navigation (Desktop) */}
+          <div className="hidden md:flex items-center gap-1 bg-white/[0.04] p-1 rounded-full border border-white/[0.06]">
+            {navLinks.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
                 <a
+                  key={item.label}
                   href={item.href}
                   onClick={(e) => handleLinkClick(e, item.href)}
-                  className="text-[13px] lg:text-[13.5px] font-normal text-[var(--studio-ink)]/75 hover:text-[var(--studio-ink)] transition-colors tracking-normal no-underline block"
+                  className={`px-3.5 py-1.5 rounded-full text-[13px] font-medium transition-all duration-200 no-underline cursor-pointer ${
+                    isActive
+                      ? "bg-white/[0.12] text-white shadow-sm"
+                      : "text-zinc-300 hover:text-white hover:bg-white/[0.06]"
+                  }`}
                 >
                   {item.label}
                 </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+              );
+            })}
+          </div>
 
-        {/* Right CTA Pill Button + Hamburger Menu (Exact match with Hero header) */}
-        <div className="flex items-center gap-3 sm:gap-4">
-          <button
-            type="button"
-            onClick={onOpenContact}
-            className="inline-flex items-center gap-2 bg-[var(--studio-light-background)] text-[var(--studio-background)] text-[12.5px] sm:text-[13px] font-medium tracking-normal px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border-none shadow-[0_4px_20px_rgba(0,0,0,0.35)] hover:bg-[var(--studio-tint)] transition-all group cursor-pointer"
-            id="nav-start-project-btn"
-            aria-label="Start a project"
-          >
-            <span>Start a project</span>
-            <span
-              className="text-[14px] font-medium inline-block transition-transform duration-200 group-hover:translate-x-0.5"
-              aria-hidden="true"
+          {/* Right Action: Pill CTA Button & Mobile Hamburger */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            <button
+              type="button"
+              onClick={onOpenContact}
+              className="inline-flex items-center gap-1.5 sm:gap-2 bg-white text-zinc-950 hover:bg-purple-100 text-[12px] sm:text-[12.5px] font-semibold px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-md hover:shadow-lg transition-all group cursor-pointer shrink-0"
+              aria-label="Start a project"
             >
-              &rarr;
-            </span>
-          </button>
+              <span>Start a project</span>
+              <ArrowRight
+                size={13}
+                className="group-hover:translate-x-0.5 transition-transform duration-200"
+              />
+            </button>
 
-          {/* 3-bar Hamburger Icon (identical to Hero header) */}
-          <button
-            type="button"
-            onClick={() => setMobileOpen(true)}
-            className="flex flex-col justify-center gap-[4.5px] w-8 h-8 p-1 border-none bg-transparent rounded ml-0.5 cursor-pointer hover:opacity-80 transition-opacity"
-            aria-label="Open mobile navigation menu"
-          >
-            <span className="block w-5 h-[1.5px] bg-[var(--studio-light-background)] rounded-full" />
-            <span className="block w-5 h-[1.5px] bg-[var(--studio-light-background)] rounded-full" />
-            <span className="block w-5 h-[1.5px] bg-[var(--studio-light-background)] rounded-full" />
-          </button>
+            {/* Mobile Hamburger Toggle */}
+            <button
+              type="button"
+              onClick={() => setMobileOpen(true)}
+              className="md:hidden flex flex-col justify-center gap-[4px] w-8 h-8 p-1 border-none bg-white/[0.06] hover:bg-white/[0.12] rounded-full cursor-pointer items-center transition-colors"
+              aria-label="Open mobile navigation menu"
+            >
+              <span className="block w-4 h-[1.5px] bg-white rounded-full" />
+              <span className="block w-4 h-[1.5px] bg-white rounded-full" />
+              <span className="block w-4 h-[1.5px] bg-white rounded-full" />
+            </button>
+          </div>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile Menu Drawer with frosted blur backdrop */}
+      {/* ====================================================================
+          FULL-SCREEN MOBILE NAVIGATION DRAWER
+          ==================================================================== */}
       <div
-        className={`fixed top-0 left-0 w-full h-screen bg-[#0a0814]/95 backdrop-blur-2xl z-[1000] flex flex-col p-8 transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed inset-0 bg-[#090715]/95 backdrop-blur-2xl z-[1000] flex flex-col p-8 transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           mobileOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -137,10 +167,10 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
           </div>
           <button
             onClick={() => setMobileOpen(false)}
-            className="text-[var(--studio-ink)] p-2 bg-transparent border-none cursor-pointer hover:text-[var(--studio-accent-soft)] transition-colors"
+            className="text-[var(--studio-ink)] p-2 bg-white/[0.06] rounded-full border-none cursor-pointer hover:bg-white/[0.12] transition-colors"
             aria-label="Close menu"
           >
-            <X size={28} />
+            <X size={24} />
           </button>
         </div>
 
@@ -149,7 +179,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
             <li key={item.label}>
               <a
                 href={item.href}
-                className="text-[28px] sm:text-[32px] font-medium text-[var(--studio-ink)]/80 hover:text-[var(--studio-accent-soft)] hover:translate-x-2 transition-all flex items-center justify-between no-underline"
+                className="text-[28px] sm:text-[32px] font-medium text-[var(--studio-ink)]/80 hover:text-white hover:translate-x-2 transition-all flex items-center justify-between no-underline"
                 onClick={(e) => handleLinkClick(e, item.href)}
               >
                 <span>{item.label}</span>
@@ -166,13 +196,13 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
               setMobileOpen(false);
               onOpenContact();
             }}
-            className="w-full flex items-center justify-center gap-2.5 bg-[var(--studio-light-background)] text-[var(--studio-background)] text-[15px] font-medium p-3.5 rounded-full border-none cursor-pointer hover:bg-[var(--studio-tint)] transition-all shadow-lg"
+            className="w-full flex items-center justify-center gap-2.5 bg-white text-zinc-950 text-[15px] font-semibold p-3.5 rounded-full border-none cursor-pointer hover:bg-purple-100 transition-all shadow-xl"
           >
             <span>Start a project</span>
             <span>&rarr;</span>
           </button>
         </div>
       </div>
-    </nav>
+    </>
   );
 }
