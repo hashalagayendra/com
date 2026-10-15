@@ -79,18 +79,6 @@ export default function Hero(props?: HeroProps) {
             </li>
             <li>
               <a
-                href="#services"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleScrollTo("services");
-                }}
-                className="text-[13px] lg:text-[13.5px] font-normal text-[var(--studio-ink)]/75 hover:text-[var(--studio-ink)] transition-colors tracking-normal no-underline"
-              >
-                Services
-              </a>
-            </li>
-            <li>
-              <a
                 href="#about"
                 onClick={(e) => {
                   e.preventDefault();
@@ -245,10 +233,10 @@ export default function Hero(props?: HeroProps) {
           </a>
           <span className="text-[var(--studio-ink)]/30 font-normal px-0.5">/</span>
           <a
-            href="#services"
+            href="#work"
             onClick={(e) => {
               e.preventDefault();
-              handleScrollTo("services");
+              handleScrollTo("work");
             }}
             className="hover:text-[var(--studio-ink)] hover:drop-shadow-[0_0_10px_rgba(167,139,250,0.8)] transition-all no-underline text-[var(--studio-accent-soft)]"
           >
@@ -256,10 +244,10 @@ export default function Hero(props?: HeroProps) {
           </a>
           <span className="text-[var(--studio-ink)]/30 font-normal px-0.5">/</span>
           <a
-            href="#services"
+            href="#work"
             onClick={(e) => {
               e.preventDefault();
-              handleScrollTo("services");
+              handleScrollTo("work");
             }}
             className="hover:text-[var(--studio-ink)] hover:drop-shadow-[0_0_10px_rgba(167,139,250,0.8)] transition-all no-underline text-[var(--studio-accent-soft)]"
           >
@@ -267,10 +255,10 @@ export default function Hero(props?: HeroProps) {
           </a>
           <span className="text-[var(--studio-ink)]/30 font-normal px-0.5">/</span>
           <a
-            href="#services"
+            href="#work"
             onClick={(e) => {
               e.preventDefault();
-              handleScrollTo("services");
+              handleScrollTo("work");
             }}
             className="hover:text-[var(--studio-ink)] hover:drop-shadow-[0_0_10px_rgba(167,139,250,0.8)] transition-all no-underline text-[var(--studio-accent-soft)]"
           >

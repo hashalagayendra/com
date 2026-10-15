@@ -5,8 +5,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import SelectedWork from "@/components/SelectedWork";
 import CaseModal from "@/components/CaseModal";
-import Services from "@/components/Services";
-import GlobalPresence from "@/components/GlobalPresence";
 import ContactModal from "@/components/ContactModal";
 import Footer from "@/components/Footer";
 import type { CaseStudy } from "@/types/caseStudy";
@@ -38,13 +36,6 @@ export default function HomePage() {
     }
   };
 
-  const handleOpenBouCo = () => {
-    const el = document.getElementById("bou-and-co");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <main style={{ minHeight: "100vh", position: "relative" }}>
       {/* Sticky Navigation Bar (appears on scroll) */}
@@ -55,12 +46,6 @@ export default function HomePage() {
 
       {/* Featured creative concepts */}
       <SelectedWork onSelectCase={setSelectedCase} />
-
-      {/* All-In-One Services & NPS */}
-      <Services onOpenContact={() => handleOpenContact()} />
-
-      {/* Global Locations & Real-time Live Clocks */}
-      <GlobalPresence onOpenBouCo={handleOpenBouCo} />
 
       {/* Footer with Comprehensive Sitemap & Inquiry Bar */}
       <Footer

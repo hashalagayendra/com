@@ -14,7 +14,7 @@ export default function Footer({ onOpenContact, onSelectCaseById }: FooterProps)
     <footer className="bg-[var(--studio-tint)] pt-20 border-t border-[var(--studio-border)] [overflow-wrap:anywhere]">
       <div className="w-full max-w-[1440px] mx-auto px-6 md:px-8 pb-16">
         {/* Footer Navigation Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 md:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-6">
           <div>
             <h4 className="text-[13px] font-bold uppercase tracking-wider text-[var(--studio-accent)] mb-4 flex items-center justify-between">
               <span>Company</span>
@@ -66,64 +66,6 @@ export default function Footer({ onOpenContact, onSelectCaseById }: FooterProps)
               <li>
                 <a href="#work" className="text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline">
                   Selected work
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-[13px] font-bold uppercase tracking-wider text-[var(--studio-accent)] mb-4 flex items-center justify-between">
-              <span>Services</span>
-              <ArrowUpRight size={14} className="opacity-40" />
-            </h4>
-            <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
-              <li>
-                <a href="#services" className="text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline">
-                  Marketing
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline">
-                  Design
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline">
-                  Communications &amp; PR
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline">
-                  Web Development
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline">
-                  Branding
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-[13px] font-bold uppercase tracking-wider text-[var(--studio-accent)] mb-4 flex items-center justify-between">
-              <span>Bou &amp; Co</span>
-              <ArrowUpRight size={14} className="opacity-40" />
-            </h4>
-            <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
-              <li>
-                <a href="#bou-and-co" className="text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline">
-                  For companies
-                </a>
-              </li>
-              <li>
-                <a href="#bou-and-co" className="text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline">
-                  For freelancers
-                </a>
-              </li>
-              <li>
-                <a href="mailto:freelancers@wearebou.com" className="text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline">
-                  freelancers@wearebou.com
                 </a>
               </li>
             </ul>
