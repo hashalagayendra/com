@@ -47,18 +47,19 @@ export default function StudioClosing({ onOpenContact }: { onOpenContact: () => 
       <OurProcess />
 
       <section id="contact" className={styles.contact} aria-labelledby="contact-heading">
-        <Image src="/images/studio/contact-artwork.webp" alt="" fill sizes="100vw" className={styles.contactImage} />
+        <Image src="/images/studio/contact-botanical.webp" alt="" fill sizes="100vw" className={styles.contactImage} />
         <div className={styles.contactInner}>
-          <div>
-            <p className={styles.label}>Contact</p>
+          <div className={styles.contactCopy}>
+            <p className={styles.label}>Let’s create together</p>
             <h2 id="contact-heading" className={styles.contactTitle}>
-              <span>Let’s make something</span>
-              <span>remarkable.</span>
+              <span>Ready to bring</span>
+              <span>your next idea to life?</span>
             </h2>
-          </div>
-          <div className={styles.contactAction}>
-            <p>Have a project in mind or just want to say hello?<br />We’d love to hear from you.</p>
-            <button type="button" className={styles.projectButton} onClick={onOpenContact}>Start a project<ArrowUpRight size={20} strokeWidth={1.6} aria-hidden="true" /></button>
+            <p className={styles.contactDescription}>Whether you need a website, a new brand identity, 3D visuals or a complete digital marketing strategy, we’re here to help.</p>
+            <div className={styles.contactButtons}>
+              <button type="button" className={styles.projectButton} onClick={onOpenContact}>Start a project<ArrowRight size={18} strokeWidth={1.6} aria-hidden="true" /></button>
+              <button type="button" className={styles.contactButton} onClick={onOpenContact}>Contact us</button>
+            </div>
           </div>
         </div>
       </section>

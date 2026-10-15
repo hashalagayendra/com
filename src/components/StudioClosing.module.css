@@ -33,16 +33,19 @@
 .textButton { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; margin-top: 12px; padding: 6px 0; border: 0; background: transparent; color: var(--closing-accent); font: inherit; font-size: 14px; font-weight: var(--studio-action-weight); cursor: pointer; }
 
 .contact { position: relative; isolation: isolate; overflow: hidden; background: #160a2a; color: var(--studio-ink); scroll-margin-top: 72px; }
-.contactImage { z-index: -2; object-fit: cover; object-position: center; }
-.contact::before { position: absolute; inset: 0; z-index: -1; content: ""; background: rgb(15 5 29 / 25%); }
-.contactInner { display: grid; grid-template-columns: 1.65fr 1fr; align-items: center; gap: 60px; max-width: 1600px; margin: 0 auto; padding: 48px 6%; }
-.contact .label { color: var(--studio-accent-soft); margin-bottom: 18px; }
-.contactTitle { max-width: 820px; }
-.contactAction { padding-top: 20px; }
-.contactAction p { margin: 0 0 22px; color: var(--studio-ink); font-size: 14px; font-weight: var(--studio-copy-weight); line-height: var(--studio-copy-leading); }
+.contactImage { z-index: -2; object-fit: cover; object-position: center right; }
+.contact::before { position: absolute; inset: 0; z-index: -1; content: ""; background: rgb(15 5 29 / 16%); }
+.contactInner { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); align-items: center; min-height: clamp(340px, 31vw, 480px); max-width: 1600px; margin: 0 auto; padding: 48px 5.5%; }
+.contact .label { color: #d6c6ef; margin-bottom: 20px; }
+.contactCopy { width: 100%; max-width: 760px; }
+.contactTitle { max-width: 760px; }
+.contactDescription { max-width: 590px; margin: 20px 0 0; color: #e0d6ef; font-size: clamp(14px, 1.12vw, 16px); font-weight: var(--studio-copy-weight); line-height: var(--studio-copy-leading); }
+.contactButtons { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; }
+.contactButton { display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 14px 34px; border: 1px solid #b8a4d2; border-radius: 999px; background: transparent; color: var(--studio-ink); font: inherit; font-size: 16px; font-weight: var(--studio-action-weight); letter-spacing: var(--studio-action-tracking); cursor: pointer; transition: background 180ms ease, border-color 180ms ease, transform 180ms ease; }
+.contactButton:hover { background: rgb(250 248 255 / 10%); border-color: var(--studio-ink); }
 .projectButton { display: inline-flex; justify-content: center; align-items: center; gap: 20px; min-height: 56px; padding: 15px 38px; border: 0; border-radius: 999px; background: var(--studio-accent); color: var(--studio-ink); font: inherit; font-size: 16px; font-weight: var(--studio-action-weight); letter-spacing: var(--studio-action-tracking); cursor: pointer; transition: background 180ms ease, transform 180ms ease; }
 .projectButton:hover { background: #8a42f3; transform: translateY(-2px); }
-.projectButton:active, .aboutButton:active { transform: scale(0.97); }
+.projectButton:active, .contactButton:active, .aboutButton:active { transform: scale(0.97); }
 
 .footer { background: #f6f2fc; color: #100c20; }
 .footerInner { display: flex; justify-content: space-between; align-items: center; gap: 36px; max-width: 1600px; margin: 0 auto; padding: 28px 5.5%; }
@@ -51,14 +54,13 @@
 .footerNav a, .backToTop { display: inline-flex; align-items: center; min-height: 44px; color: inherit; font-size: 13px; font-weight: var(--studio-action-weight); letter-spacing: var(--studio-action-tracking); text-decoration: none; transition: color 180ms ease; }
 .backToTop { gap: 10px; white-space: nowrap; }
 .footer a:hover { color: var(--studio-accent); }
-.aboutButton:focus-visible, .textButton:focus-visible, .projectButton:focus-visible, .footer a:focus-visible { outline: 2px solid var(--studio-accent-soft); outline-offset: 5px; }
+.aboutButton:focus-visible, .textButton:focus-visible, .projectButton:focus-visible, .contactButton:focus-visible, .footer a:focus-visible { outline: 2px solid var(--studio-accent-soft); outline-offset: 5px; }
 
 @media (max-width: 1199px) and (min-width: 900px) {
   .studioInner { grid-template-columns: 0.42fr 0.58fr; }
   .studioCopy { padding: 36px 28px; gap: 22px; }
   .stats { padding-left: 22px; }
   .stats dt { font-size: 11px; }
-  .contactInner { gap: 36px; }
 }
 
 @media (max-width: 899px) {
@@ -67,8 +69,8 @@
   .studioCopy { padding: 36px 32px; }
   .studioTitle { font-size: var(--studio-section-title-size); }
   .description { max-width: 620px; font-size: 16px; }
-  .contactInner { grid-template-columns: 1fr; gap: 28px; padding: 40px 32px; }
-  .contactAction { padding-top: 0; }
+  .contactInner { padding: 40px 32px; }
+  .contactDescription { max-width: 530px; }
   .footerInner { flex-wrap: wrap; gap: 10px 24px; padding: 20px 32px; }
   .footerNav { order: 3; width: 100%; justify-content: center; }
 }
@@ -81,17 +83,20 @@
   .stats dd { font-size: 32px; }
   .stats dt { max-width: 100px; font-size: 11px; white-space: normal; }
   .description, .aboutDetails p { font-size: 15px; }
-  .contactInner { padding: 36px 22px; gap: 24px; }
+  .contactInner { min-height: 0; padding: 40px 22px 32px; }
+  .contactImage { object-position: 65% center; opacity: 0.65; }
+  .contact::before { background: rgb(15 5 29 / 38%); }
   .contactTitle { max-width: 420px; }
-  .contactAction p { font-size: 14px; }
-  .projectButton { min-height: 52px; font-size: 15px; padding-inline: 28px; }
+  .contactDescription { font-size: 14px; }
+  .contactButtons { gap: 12px; margin-top: 26px; }
+  .projectButton, .contactButton { min-height: 52px; font-size: 15px; padding-inline: 24px; }
   .footerInner { padding: 20px 22px 16px; }
   .footerNav { justify-content: space-between; gap: 14px; }
   .backToTop { font-size: 12px; gap: 6px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .studioImage, .projectButton, .aboutButton, .footer a { transition: none; }
+  .studioImage, .projectButton, .contactButton, .aboutButton, .footer a { transition: none; }
 }
 
 @media (max-width: 359px) {
