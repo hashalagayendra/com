@@ -16,30 +16,30 @@ export default function Footer({ onOpenContact, onSelectCaseById }: FooterProps)
         {/* Footer Navigation Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-6">
           <div>
-            <h4 className="text-[13px] font-bold uppercase tracking-wider text-[var(--studio-accent)] mb-4 flex items-center justify-between">
+            <h4 className="text-[13px] studio-label text-[var(--studio-accent)] mb-4 flex items-center justify-between">
               <span>Company</span>
               <ArrowUpRight size={14} className="opacity-40" />
             </h4>
             <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
               <li>
-                <a href="#home" className="text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline">
+                <a href="#home" className="studio-action text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline">
+                <a href="#about" className="studio-action text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline">
                   About
                 </a>
               </li>
               <li>
-                <a href="#careers" className="text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline">
+                <a href="#careers" className="studio-action text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline">
                   Careers
                 </a>
               </li>
               <li>
                 <button
                   onClick={() => onOpenContact()}
-                  className="text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors bg-transparent border-none p-0 cursor-pointer text-left"
+                  className="studio-action text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors bg-transparent border-none p-0 cursor-pointer text-left"
                 >
                   Contact
                 </button>
@@ -48,7 +48,7 @@ export default function Footer({ onOpenContact, onSelectCaseById }: FooterProps)
           </div>
 
           <div>
-            <h4 className="text-[13px] font-bold uppercase tracking-wider text-[var(--studio-accent)] mb-4 flex items-center justify-between">
+            <h4 className="text-[13px] studio-label text-[var(--studio-accent)] mb-4 flex items-center justify-between">
               <span>Work</span>
               <ArrowUpRight size={14} className="opacity-40" />
             </h4>
@@ -57,14 +57,14 @@ export default function Footer({ onOpenContact, onSelectCaseById }: FooterProps)
                 <li key={project.id}>
                   <button
                     onClick={() => onSelectCaseById(project.id)}
-                    className="text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors bg-transparent border-none p-0 cursor-pointer text-left"
+                    className="studio-action text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors bg-transparent border-none p-0 cursor-pointer text-left"
                   >
                     {project.client.split(" · ")[0]}
                   </button>
                 </li>
               ))}
               <li>
-                <a href="#work" className="text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline">
+                <a href="#work" className="studio-action text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline">
                   Selected work
                 </a>
               </li>
@@ -72,7 +72,7 @@ export default function Footer({ onOpenContact, onSelectCaseById }: FooterProps)
           </div>
 
           <div>
-            <h4 className="text-[13px] font-bold uppercase tracking-wider text-[var(--studio-accent)] mb-4">
+            <h4 className="text-[13px] studio-label text-[var(--studio-accent)] mb-4">
               <span>Social</span>
             </h4>
             <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
@@ -81,7 +81,7 @@ export default function Footer({ onOpenContact, onSelectCaseById }: FooterProps)
                   href="https://www.instagram.com/wearebou"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline"
+                  className="studio-action text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline"
                 >
                   Instagram
                 </a>
@@ -91,7 +91,7 @@ export default function Footer({ onOpenContact, onSelectCaseById }: FooterProps)
                   href="https://www.linkedin.com/company/wearebou"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline"
+                  className="studio-action text-[14.5px] text-[var(--studio-background)] hover:text-[var(--studio-background)] transition-colors no-underline"
                 >
                   LinkedIn
                 </a>
@@ -106,37 +106,37 @@ export default function Footer({ onOpenContact, onSelectCaseById }: FooterProps)
         <div className="w-full max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
             <div>
-              <span className="block text-[11px] font-bold uppercase tracking-wider text-[var(--studio-accent-soft)] mb-1.5">
+              <span className="block text-[11px] studio-label text-[var(--studio-accent-soft)] mb-1.5">
                 New business
               </span>
-              <a href="mailto:holla@wearebou.com" className="text-[14.5px] font-semibold text-[var(--studio-ink)] hover:text-[var(--studio-accent)] transition-colors no-underline">
+              <a href="mailto:holla@wearebou.com" className="text-[14.5px] studio-action text-[var(--studio-ink)] hover:text-[var(--studio-accent)] transition-colors no-underline">
                 holla@wearebou.com
               </a>
             </div>
 
             <div>
-              <span className="block text-[11px] font-bold uppercase tracking-wider text-[var(--studio-accent-soft)] mb-1.5">
+              <span className="block text-[11px] studio-label text-[var(--studio-accent-soft)] mb-1.5">
                 PR &amp; Talks
               </span>
-              <a href="mailto:press@wearebou.com" className="text-[14.5px] font-semibold text-[var(--studio-ink)] hover:text-[var(--studio-accent)] transition-colors no-underline">
+              <a href="mailto:press@wearebou.com" className="text-[14.5px] studio-action text-[var(--studio-ink)] hover:text-[var(--studio-accent)] transition-colors no-underline">
                 press@wearebou.com
               </a>
             </div>
 
             <div>
-              <span className="block text-[11px] font-bold uppercase tracking-wider text-[var(--studio-accent-soft)] mb-1.5">
+              <span className="block text-[11px] studio-label text-[var(--studio-accent-soft)] mb-1.5">
                 Work inquiries
               </span>
-              <a href="mailto:work@wearebou.com" className="text-[14.5px] font-semibold text-[var(--studio-ink)] hover:text-[var(--studio-accent)] transition-colors no-underline">
+              <a href="mailto:work@wearebou.com" className="text-[14.5px] studio-action text-[var(--studio-ink)] hover:text-[var(--studio-accent)] transition-colors no-underline">
                 work@wearebou.com
               </a>
             </div>
 
             <div>
-              <span className="block text-[11px] font-bold uppercase tracking-wider text-[var(--studio-accent-soft)] mb-1.5">
+              <span className="block text-[11px] studio-label text-[var(--studio-accent-soft)] mb-1.5">
                 Invoicing
               </span>
-              <span className="text-[14.5px] font-semibold text-[var(--studio-ink)]">
+              <span className="text-[14.5px] studio-action text-[var(--studio-ink)]">
                 Apix Messaging
               </span>
             </div>

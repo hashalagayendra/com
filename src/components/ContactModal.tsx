@@ -90,10 +90,10 @@ export default function ContactModal({
             <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-6">
               <CheckCircle size={36} />
             </div>
-            <h3 className="text-[28px] font-extrabold text-[var(--studio-background)] mb-2">
+            <h3 className="text-[28px] studio-heading text-[var(--studio-background)] mb-2">
               Message Received
             </h3>
-            <p className="text-[15px] text-[var(--studio-muted)] max-w-[400px] leading-relaxed">
+            <p className="studio-copy text-[15px] text-[var(--studio-muted)] max-w-[400px] leading-relaxed">
               Thank you {name ? name : "for writing"}. Our partnerships team in{" "}
               {defaultCity ? defaultCity : "Helsinki & London"} will get back to you shortly.
             </p>
@@ -101,13 +101,13 @@ export default function ContactModal({
         ) : (
           <>
             <div className="mb-6">
-              <span className="text-[12px] font-bold tracking-wider uppercase text-[var(--studio-accent-soft)] block mb-1">
+              <span className="text-[12px] studio-label text-[var(--studio-accent-soft)] block mb-1">
                 Let&apos;s Build Together
               </span>
-              <h2 className="text-[28px] sm:text-[34px] font-extrabold tracking-tight text-[var(--studio-background)]">
+              <h2 className="text-[28px] sm:text-[34px] studio-heading text-[var(--studio-background)]">
                 Start a conversation
               </h2>
-              <p className="text-[15px] text-[var(--studio-muted)] mt-1.5">
+              <p className="studio-copy text-[15px] text-[var(--studio-muted)] mt-1.5">
                 Whether you’re launching something new or transforming an established category leader.
               </p>
             </div>
@@ -115,7 +115,7 @@ export default function ContactModal({
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[12.5px] font-bold text-[var(--studio-background)]">Your Name *</label>
+                  <label className="text-[12.5px] font-medium text-[var(--studio-background)]">Your Name *</label>
                   <input
                     type="text"
                     required
@@ -126,7 +126,7 @@ export default function ContactModal({
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[12.5px] font-bold text-[var(--studio-background)]">Work Email *</label>
+                  <label className="text-[12.5px] font-medium text-[var(--studio-background)]">Work Email *</label>
                   <input
                     type="email"
                     required
@@ -139,7 +139,7 @@ export default function ContactModal({
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-[12.5px] font-bold text-[var(--studio-background)]">Company / Organization</label>
+                <label className="text-[12.5px] font-medium text-[var(--studio-background)]">Company / Organization</label>
                 <input
                   type="text"
                   value={company}
@@ -150,7 +150,7 @@ export default function ContactModal({
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-[12.5px] font-bold text-[var(--studio-background)]">What can we help you build?</label>
+                <label className="text-[12.5px] font-medium text-[var(--studio-background)]">What can we help you build?</label>
                 <div className="flex items-center gap-2 flex-wrap">
                   {servicesOptions.map((svc) => (
                     <button
@@ -170,7 +170,7 @@ export default function ContactModal({
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-[12.5px] font-bold text-[var(--studio-background)]">Tell us about your project</label>
+                <label className="text-[12.5px] font-medium text-[var(--studio-background)]">Tell us about your project</label>
                 <textarea
                   rows={4}
                   value={message}

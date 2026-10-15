@@ -151,7 +151,7 @@ export default function Hero(props?: HeroProps) {
       <div className="relative z-20 w-full px-6 sm:px-10 md:px-14 lg:px-20 flex-1 flex items-center justify-start -translate-y-4 sm:-translate-y-6 lg:-translate-y-8 py-4">
         <div className="max-w-[740px] w-full text-left">
           {/* Headline: Lifted up, bolder weight (font-medium sm:font-semibold), single-line Creative ideas */}
-          <h1 className="text-[34px] sm:text-[48px] md:text-[62px] lg:text-[74px] xl:text-[82px] font-medium sm:font-semibold leading-[1.05] tracking-[-0.025em] text-[var(--studio-ink)] m-0 flex flex-col">
+          <h1 className="studio-heading text-[34px] sm:text-[48px] md:text-[62px] lg:text-[74px] xl:text-[82px] text-[var(--studio-ink)] m-0 flex flex-col">
             <span className="block text-[var(--studio-ink)] whitespace-nowrap">Creative ideas</span>
             <span className="block text-[var(--studio-ink)]">
               built to{" "}
@@ -162,7 +162,7 @@ export default function Hero(props?: HeroProps) {
           </h1>
 
           {/* Subtitle / Mission Description */}
-          <p className="text-[14.5px] sm:text-[16px] lg:text-[16.5px] leading-[1.65] text-[var(--studio-accent-soft)]/90 mt-5 sm:mt-7 max-w-[460px] font-normal sm:font-medium tracking-normal text-balance">
+          <p className="studio-copy text-[14.5px] sm:text-[16px] lg:text-[16.5px] text-[var(--studio-accent-soft)]/90 mt-5 sm:mt-7 max-w-[460px] text-balance">
             We design brands, websites, 3D visuals and digital campaigns that make a real impact.
           </p>
 
@@ -179,7 +179,7 @@ export default function Hero(props?: HeroProps) {
                 strokeWidth={1.75}
               />
             </div>
-            <span className="text-[13.5px] sm:text-[14.5px] font-medium text-[var(--studio-ink)]/90 tracking-[0.015em] transition-colors duration-300 group-hover:text-[var(--studio-ink)]">
+            <span className="studio-action text-[13.5px] sm:text-[14.5px] text-[var(--studio-ink)]/90 transition-colors duration-300 group-hover:text-[var(--studio-ink)]">
               Explore our work
             </span>
           </button>

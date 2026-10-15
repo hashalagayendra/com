@@ -13,21 +13,21 @@
 .inner { max-width: 1600px; margin: 0 auto; padding: 0 7.2%; }
 .grid { display: grid; grid-template-columns: minmax(0, 1.95fr) repeat(4, minmax(0, 1fr)); gap: clamp(18px, 1.85vw, 30px); align-items: stretch; }
 .intro { padding-right: clamp(12px, 2vw, 32px); }
-.eyebrow { margin: 0 0 12px; color: var(--services-muted); font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; }
-.heading { margin: 0; font-size: clamp(42px, 4.7vw, 72px); font-weight: 800; line-height: 0.94; letter-spacing: -0.065em; }
+.eyebrow { margin: 0 0 12px; color: var(--services-muted); font-size: 10px; font-weight: var(--studio-label-weight); letter-spacing: var(--studio-label-tracking); text-transform: uppercase; }
+.heading { margin: 0; font-size: clamp(42px, 4.7vw, 72px); font-weight: var(--studio-heading-weight); line-height: var(--studio-heading-leading); letter-spacing: var(--studio-heading-tracking); }
 .heading > span { display: block; }
 .heading .accent { color: var(--services-accent); }
-.description { margin: 20px 0 0; max-width: 350px; font-size: clamp(13px, 1.16vw, 17px); line-height: 1.45; color: var(--services-muted); }
-.explore { display: inline-flex; gap: 15px; align-items: center; margin-top: 21px; padding: 0; border: 0; background: transparent; color: var(--services-ink); font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
+.description { margin: 20px 0 0; max-width: 350px; font-size: clamp(13px, 1.16vw, 17px); font-weight: var(--studio-copy-weight); line-height: var(--studio-copy-leading); color: var(--services-muted); }
+.explore { display: inline-flex; gap: 15px; align-items: center; margin-top: 21px; padding: 0; border: 0; background: transparent; color: var(--services-ink); font: inherit; font-size: 12px; font-weight: var(--studio-action-weight); letter-spacing: var(--studio-action-tracking); cursor: pointer; }
 .play { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--services-muted); border-radius: 50%; transition: transform 200ms ease, background 200ms ease, color 200ms ease; }
 .play svg { margin-left: 2px; }
 .explore:hover .play { background: var(--services-accent); color: var(--services-ground); transform: scale(1.06); }
 .discipline { position: relative; display: flex; flex-direction: column; align-items: stretch; min-width: 0; margin: 12px 0 18px; padding: 0 0 0 clamp(16px, 1.85vw, 30px); border: 0; border-left: 1px solid var(--services-line); background: transparent; color: inherit; text-align: left; font: inherit; cursor: pointer; }
 .artwork { position: relative; display: block; width: 100%; aspect-ratio: 0.96; background: var(--services-line); overflow: hidden; border-radius: 2px; }
 .image { object-fit: cover; transition: transform 600ms cubic-bezier(0.2, 0.65, 0.3, 1); }
-.number { position: absolute; top: -2px; left: -1px; padding: 0 5px 3px 0; border-radius: 0 0 7px 0; background: var(--services-ground); color: var(--services-ink); font-size: clamp(18px, 1.85vw, 28px); font-weight: 700; line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
-.serviceTitle { display: block; margin-top: 18px; font-size: clamp(14px, 1.3vw, 19px); font-weight: 700; line-height: 1.15; letter-spacing: -0.045em; }
-.serviceDescription { display: block; margin: 10px 0 18px; color: var(--services-muted); font-size: clamp(12px, 1.05vw, 15px); line-height: 1.4; }
+.number { position: absolute; top: -2px; left: -1px; padding: 0 5px 3px 0; border-radius: 0 0 7px 0; background: var(--services-ground); color: var(--services-ink); font-size: clamp(18px, 1.85vw, 28px); font-weight: var(--studio-heading-weight); line-height: 1; letter-spacing: var(--studio-heading-tracking); font-variant-numeric: tabular-nums; }
+.serviceTitle { display: block; margin-top: 18px; font-size: clamp(14px, 1.3vw, 19px); font-weight: var(--studio-heading-weight); line-height: 1.25; letter-spacing: var(--studio-heading-tracking); }
+.serviceDescription { display: block; margin: 10px 0 18px; color: var(--services-muted); font-size: clamp(12px, 1.05vw, 15px); font-weight: var(--studio-copy-weight); line-height: var(--studio-copy-leading); }
 .arrow { display: flex; align-items: end; min-height: 26px; margin-top: auto; color: var(--services-accent); transition: transform 200ms ease; }
 .discipline:hover .image { transform: scale(1.06); }
 .discipline:hover .arrow, .discipline[aria-expanded="true"] .arrow { transform: translateX(5px); }
@@ -35,12 +35,12 @@
 .discipline:focus-visible, .explore:focus-visible, .discuss:focus-visible, .close:focus-visible { outline: 2px solid var(--services-accent); outline-offset: 6px; }
 .detail { position: relative; display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; margin-top: 32px; padding: 32px 60px 32px 32px; background: var(--services-line); scroll-margin-top: 96px; }
 .detail[hidden] { display: none; }
-.detail h3 { margin: 0 0 12px; font-size: 24px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.2; }
-.detail p, .detail li { font-size: 16px; line-height: 1.55; color: var(--services-muted); }
+.detail h3 { margin: 0 0 12px; font-size: 24px; font-weight: var(--studio-heading-weight); letter-spacing: var(--studio-heading-tracking); line-height: 1.25; }
+.detail p, .detail li { font-size: 16px; font-weight: var(--studio-copy-weight); line-height: var(--studio-copy-leading); color: var(--services-muted); }
 .detail p { max-width: 620px; margin: 0; }
 .detail ul { padding-left: 20px; margin: 0; align-self: center; }
 .detail li + li { margin-top: 6px; }
-.discuss { display: inline-flex; align-items: center; gap: 12px; padding: 10px 0; margin-top: 14px; border: 0; background: transparent; color: var(--services-ink); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; }
+.discuss { display: inline-flex; align-items: center; gap: 12px; padding: 10px 0; margin-top: 14px; border: 0; background: transparent; color: var(--services-ink); font: inherit; font-size: 15px; font-weight: var(--studio-action-weight); letter-spacing: var(--studio-action-tracking); cursor: pointer; }
 .discuss:hover { color: var(--services-accent); }
 .close { position: absolute; top: 12px; right: 12px; display: grid; place-items: center; width: 44px; height: 44px; border: 0; background: transparent; color: var(--services-ink); cursor: pointer; }
 

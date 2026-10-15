@@ -59,22 +59,22 @@ export default function CaseModal({ caseStudy, onClose }: CaseModalProps) {
 
         <div className="p-6 md:p-10 text-[var(--studio-background)]">
           <div className="mb-8 pb-6 border-b border-[var(--studio-border)]">
-            <div className="flex items-center gap-3 text-[12px] font-bold tracking-widest uppercase text-[var(--studio-muted)] mb-2">
+            <div className="flex items-center gap-3 text-[12px] studio-label text-[var(--studio-muted)] mb-2">
               <span>{caseStudy.client}</span>
               <span>&bull;</span>
               <span>{caseStudy.year}</span>
             </div>
-            <h2 className="text-[28px] md:text-[38px] font-extrabold tracking-tight text-[var(--studio-background)]">
+            <h2 className="text-[28px] md:text-[38px] studio-heading text-[var(--studio-background)]">
               {caseStudy.title}
             </h2>
-            <p className="text-[17px] text-[var(--studio-muted)] mt-2 mb-4">
+            <p className="studio-copy text-[17px] text-[var(--studio-muted)] mt-2 mb-4">
               {caseStudy.tagline}
             </p>
             <div className="flex items-center gap-2 flex-wrap">
               {caseStudy.categories.map((cat) => (
                 <span
                   key={cat}
-                  className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-[var(--studio-tint)] text-[var(--studio-muted)]"
+                  className="text-[10px] studio-label px-2.5 py-1 rounded-full bg-[var(--studio-tint)] text-[var(--studio-muted)]"
                 >
                   {cat}
                 </span>
@@ -84,30 +84,30 @@ export default function CaseModal({ caseStudy, onClose }: CaseModalProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-10">
             <div>
-              <h3 className="text-[13px] font-bold uppercase tracking-wider text-[var(--studio-accent)] mb-2">
+              <h3 className="text-[13px] studio-label text-[var(--studio-accent)] mb-2">
                 The Overview
               </h3>
-              <p className="text-[15.5px] leading-relaxed text-[var(--studio-background)] mb-6">
+              <p className="studio-copy text-[15.5px] leading-relaxed text-[var(--studio-background)] mb-6">
                 {caseStudy.overview}
               </p>
 
-              <h3 className="text-[13px] font-bold uppercase tracking-wider text-[var(--studio-accent)] mb-2">
+              <h3 className="text-[13px] studio-label text-[var(--studio-accent)] mb-2">
                 The Challenge
               </h3>
-              <p className="text-[15.5px] leading-relaxed text-[var(--studio-background)] mb-6">
+              <p className="studio-copy text-[15.5px] leading-relaxed text-[var(--studio-background)] mb-6">
                 {caseStudy.challenge}
               </p>
 
-              <h3 className="text-[13px] font-bold uppercase tracking-wider text-[var(--studio-accent)] mb-2">
+              <h3 className="text-[13px] studio-label text-[var(--studio-accent)] mb-2">
                 The Solution
               </h3>
-              <p className="text-[15.5px] leading-relaxed text-[var(--studio-background)] mb-6">
+              <p className="studio-copy text-[15.5px] leading-relaxed text-[var(--studio-background)] mb-6">
                 {caseStudy.solution}
               </p>
 
               {caseStudy.metrics && caseStudy.metrics.length > 0 && (
                 <div>
-                  <h3 className="text-[13px] font-bold uppercase tracking-wider text-[var(--studio-accent)] mb-3">
+                  <h3 className="text-[13px] studio-label text-[var(--studio-accent)] mb-3">
                     Impact &amp; Results
                   </h3>
                   <div className="grid grid-cols-2 gap-3">
@@ -116,7 +116,7 @@ export default function CaseModal({ caseStudy, onClose }: CaseModalProps) {
                         key={m.label}
                         className="p-4 rounded-xl bg-[var(--studio-tint)] border border-[var(--studio-border)]"
                       >
-                        <span className="block text-[24px] font-black tracking-tight text-[var(--studio-background)]">
+                        <span className="block text-[24px] studio-heading text-[var(--studio-background)]">
                           {m.value}
                         </span>
                         <span className="block text-[12px] text-[var(--studio-muted)] mt-0.5">
@@ -130,7 +130,7 @@ export default function CaseModal({ caseStudy, onClose }: CaseModalProps) {
             </div>
 
             <div>
-              <h3 className="text-[13px] font-bold uppercase tracking-wider text-[var(--studio-accent)] mb-3">
+              <h3 className="text-[13px] studio-label text-[var(--studio-accent)] mb-3">
                 Deliverables
               </h3>
               <ul className="flex flex-col gap-2.5 list-none p-0 mb-8">
@@ -147,13 +147,13 @@ export default function CaseModal({ caseStudy, onClose }: CaseModalProps) {
 
               {caseStudy.quote && (
                 <div className="p-6 rounded-2xl bg-[var(--studio-background)] text-[var(--studio-ink)]">
-                  <p className="text-[15px] italic leading-relaxed text-[var(--studio-accent-soft)] mb-4">
+                  <p className="studio-copy text-[15px] italic leading-relaxed text-[var(--studio-accent-soft)] mb-4">
                     “{caseStudy.quote.text}”
                   </p>
-                  <p className="text-[13px] font-bold text-[var(--studio-ink)]">
+                  <p className="studio-copy text-[13px] font-medium text-[var(--studio-ink)]">
                     {caseStudy.quote.author}
                   </p>
-                  <p className="text-[11px] text-[var(--studio-accent-soft)]">
+                  <p className="studio-copy text-[11px] text-[var(--studio-accent-soft)]">
                     {caseStudy.quote.role}
                   </p>
                 </div>

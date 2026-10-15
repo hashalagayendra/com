@@ -1,6 +1,16 @@
 @import "tailwindcss";
 
 :root {
+  --studio-font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --studio-heading-weight: 500;
+  --studio-heading-tracking: -0.025em;
+  --studio-heading-leading: 1.05;
+  --studio-copy-weight: 400;
+  --studio-copy-leading: 1.65;
+  --studio-label-weight: 500;
+  --studio-label-tracking: 0.24em;
+  --studio-action-weight: 500;
+  --studio-action-tracking: 0.015em;
   --studio-background: #25144d;
   --studio-surface: color-mix(in srgb, var(--studio-background) 88%, var(--studio-accent-soft));
   --studio-ink: #faf8ff;
@@ -15,7 +25,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--studio-font-family);
   background-color: var(--studio-background);
   color: var(--studio-ink);
 }
@@ -24,4 +34,39 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
   background-color: var(--studio-background);
+  font-family: var(--studio-font-family);
+}
+
+button, input, select, textarea {
+  font-family: var(--studio-font-family);
+}
+
+.studio-heading {
+  font-weight: var(--studio-heading-weight);
+  letter-spacing: var(--studio-heading-tracking);
+  line-height: var(--studio-heading-leading);
+}
+
+.studio-copy {
+  font-weight: var(--studio-copy-weight);
+  letter-spacing: normal;
+  line-height: var(--studio-copy-leading);
+}
+
+.studio-label {
+  font-weight: var(--studio-label-weight);
+  letter-spacing: var(--studio-label-tracking);
+  text-transform: uppercase;
+}
+
+.studio-action {
+  font-weight: var(--studio-action-weight);
+  letter-spacing: var(--studio-action-tracking);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --studio-heading-weight: 600;
+    --studio-copy-weight: 500;
+  }
 }
