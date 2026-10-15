@@ -1,5 +1,5 @@
 .studio {
-  --closing-ground: #f6f2fc;
+  --closing-ground: var(--studio-light-background);
   --closing-ink: #100c20;
   --closing-muted: #514a60;
   --closing-accent: #7928ee;
@@ -47,7 +47,7 @@
 .projectButton:hover { background: #8a42f3; transform: translateY(-2px); }
 .projectButton:active, .contactButton:active, .aboutButton:active { transform: scale(0.97); }
 
-.footer { background: #f6f2fc; color: #100c20; }
+.footer { background: var(--studio-light-background); color: #100c20; }
 .footerInner { display: flex; justify-content: space-between; align-items: center; gap: 36px; max-width: 1600px; margin: 0 auto; padding: 28px 5.5%; }
 .wordmark { color: inherit; font-size: clamp(19px, 1.8vw, 26px); font-weight: 700; letter-spacing: -0.025em; text-decoration: none; white-space: nowrap; }
 .footerNav { display: flex; align-items: center; gap: clamp(22px, 2.5vw, 40px); }

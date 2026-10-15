@@ -13,6 +13,7 @@
   --studio-action-weight: 500;
   --studio-action-tracking: 0.015em;
   --studio-background: #25144d;
+  --studio-light-background: #f6f2fc;
   --studio-surface: color-mix(in srgb, var(--studio-background) 88%, var(--studio-accent-soft));
   --studio-ink: #faf8ff;
   --studio-accent: #7c3aed;

@@ -1,5 +1,5 @@
 .section {
-  --services-ground: #f6f2fc;
+  --services-ground: var(--studio-light-background);
   --services-ink: #100c20;
   --services-muted: #514a60;
   --services-accent: #7928ee;

@@ -120,7 +120,7 @@ export default function Hero(props?: HeroProps) {
         <div className="flex items-center gap-3 sm:gap-4">
           <button
             type="button"
-            className="inline-flex items-center gap-2 bg-[var(--studio-ink)] text-[var(--studio-background)] text-[12.5px] sm:text-[13px] font-medium tracking-normal px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border-none shadow-[0_4px_20px_rgba(0,0,0,0.35)] hover:bg-[var(--studio-tint)] transition-all group cursor-default"
+            className="inline-flex items-center gap-2 bg-[var(--studio-light-background)] text-[var(--studio-background)] text-[12.5px] sm:text-[13px] font-medium tracking-normal px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border-none shadow-[0_4px_20px_rgba(0,0,0,0.35)] hover:bg-[var(--studio-tint)] transition-all group cursor-default"
             id="hero-start-project-btn"
             aria-label="Start a project"
           >
@@ -138,9 +138,9 @@ export default function Hero(props?: HeroProps) {
             className="flex flex-col justify-center gap-[4.5px] w-8 h-8 p-1 border-none bg-transparent rounded ml-0.5 cursor-default"
             aria-label="Navigation menu"
           >
-            <span className="block w-5 h-[1.5px] bg-[var(--studio-ink)] rounded-full" />
-            <span className="block w-5 h-[1.5px] bg-[var(--studio-ink)] rounded-full" />
-            <span className="block w-5 h-[1.5px] bg-[var(--studio-ink)] rounded-full" />
+            <span className="block w-5 h-[1.5px] bg-[var(--studio-light-background)] rounded-full" />
+            <span className="block w-5 h-[1.5px] bg-[var(--studio-light-background)] rounded-full" />
+            <span className="block w-5 h-[1.5px] bg-[var(--studio-light-background)] rounded-full" />
           </button>
         </div>
       </header>
@@ -199,7 +199,7 @@ export default function Hero(props?: HeroProps) {
 
         {/* Vertical Track with Active White Indicator */}
         <div className="w-[1.5px] h-9 bg-[var(--studio-ink)]/20 relative rounded-full overflow-hidden my-0.5">
-          <div className="absolute top-0 left-0 w-full h-full bg-[var(--studio-ink)] shadow-[0_0_8px_#ffffff]" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[var(--studio-light-background)] shadow-[0_0_8px_#ffffff]" />
         </div>
 
         <span className="text-[11px] font-medium text-[var(--studio-ink)]/40 tabular-nums">
@@ -227,7 +227,7 @@ export default function Hero(props?: HeroProps) {
             SCROLL
           </span>
           <div className="w-[1px] h-4 sm:h-5 bg-[var(--studio-ink)]/30 ml-2.5 sm:ml-3 relative overflow-hidden">
-            <div className="w-full h-2 sm:h-2.5 bg-[var(--studio-ink)] shadow-[0_0_6px_#ffffff] animate-bounce" />
+            <div className="w-full h-2 sm:h-2.5 bg-[var(--studio-light-background)] shadow-[0_0_6px_#ffffff] animate-bounce" />
           </div>
         </button>
 

@@ -1,5 +1,5 @@
 .section {
-  --process-ground: #faf8ff;
+  --process-ground: var(--studio-light-background);
   --process-ink: #100c20;
   --process-muted: #514a60;
   --process-number: #d9cef0;

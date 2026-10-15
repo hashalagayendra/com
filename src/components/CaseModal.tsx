@@ -35,7 +35,7 @@ export default function CaseModal({ caseStudy, onClose }: CaseModalProps) {
       aria-modal="true"
     >
       <div
-        className="relative w-full max-w-[920px] max-h-[92vh] bg-[var(--studio-ink)] rounded-3xl overflow-y-auto shadow-2xl my-auto animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-[920px] max-h-[92vh] bg-[var(--studio-light-background)] rounded-3xl overflow-y-auto shadow-2xl my-auto animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         <button

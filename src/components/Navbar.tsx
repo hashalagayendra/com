@@ -81,7 +81,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
         <div className="flex items-center gap-4">
           <button
             onClick={onOpenContact}
-            className="inline-flex items-center gap-2 bg-[var(--studio-accent)] text-[var(--studio-ink)] text-[13px] font-medium px-4 py-2 rounded-full border-none cursor-pointer shadow-md hover:bg-[var(--studio-ink)] hover:text-[var(--studio-background)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(124,58,237,0.3)] transition-all group"
+            className="inline-flex items-center gap-2 bg-[var(--studio-accent)] text-[var(--studio-ink)] text-[13px] font-medium px-4 py-2 rounded-full border-none cursor-pointer shadow-md hover:bg-[var(--studio-light-background)] hover:text-[var(--studio-background)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(124,58,237,0.3)] transition-all group"
             id="nav-contact-btn"
           >
             <span>Start a project</span>
@@ -140,7 +140,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
               setMobileOpen(false);
               onOpenContact();
             }}
-            className="w-full flex items-center justify-center gap-2.5 bg-[var(--studio-ink)] text-[var(--studio-background)] text-[15px] font-medium p-3.5 rounded-full border-none cursor-pointer hover:bg-[var(--studio-tint)] transition-all"
+            className="w-full flex items-center justify-center gap-2.5 bg-[var(--studio-light-background)] text-[var(--studio-background)] text-[15px] font-medium p-3.5 rounded-full border-none cursor-pointer hover:bg-[var(--studio-tint)] transition-all"
           >
             <span>Start a project</span>
             <span>&rarr;</span>

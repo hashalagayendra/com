@@ -74,7 +74,7 @@ export default function ContactModal({
       aria-modal="true"
     >
       <div
-        className="relative w-full max-w-[640px] max-h-[92vh] bg-[var(--studio-ink)] rounded-3xl p-6 sm:p-10 shadow-2xl my-auto overflow-y-auto animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-[640px] max-h-[92vh] bg-[var(--studio-light-background)] rounded-3xl p-6 sm:p-10 shadow-2xl my-auto overflow-y-auto animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         <button
