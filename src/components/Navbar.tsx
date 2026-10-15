@@ -48,7 +48,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
     <nav
       className={`fixed top-0 left-0 w-full z-[900] transition-all duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         scrolled
-          ? "translate-y-0 opacity-100 pointer-events-auto bg-[#090511]/90 backdrop-blur-xl border-b border-purple-500/20 shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+          ? "translate-y-0 opacity-100 pointer-events-auto bg-[var(--studio-background)] backdrop-blur-xl border-b border-[var(--studio-accent-soft)]/25 shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
           : "-translate-y-full opacity-0 pointer-events-none"
       }`}
       aria-label="Sticky Navigation"
@@ -56,10 +56,10 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
       <div className="w-full max-w-[1440px] mx-auto px-6 md:px-14 flex items-center justify-between h-[72px]">
         <Link
           href="#home"
-          className="text-[19px] font-extrabold tracking-tight uppercase text-white inline-flex items-baseline no-underline hover:opacity-85 transition-opacity"
+          className="text-[19px] font-extrabold tracking-tight uppercase text-[var(--studio-ink)] inline-flex items-baseline no-underline hover:opacity-85 transition-opacity"
         >
           YOUR STUDIO
-          <span className="text-purple-500 text-[22px] leading-none ml-[1px] drop-shadow-[0_0_10px_rgba(168,85,247,0.8)]">
+          <span className="text-[var(--studio-accent-soft)] text-[22px] leading-none ml-[1px] drop-shadow-[0_0_10px_rgba(124,58,237,0.8)]">
             .
           </span>
         </Link>
@@ -70,7 +70,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
               <a
                 href={item.href}
                 onClick={(e) => handleLinkClick(e, item.href)}
-                className="text-white/80 hover:text-white text-[14px] font-medium tracking-tight transition-colors py-1.5 no-underline block"
+                className="text-[var(--studio-ink)]/80 hover:text-[var(--studio-ink)] text-[14px] font-medium tracking-tight transition-colors py-1.5 no-underline block"
               >
                 {item.label}
               </a>
@@ -81,7 +81,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
         <div className="flex items-center gap-4">
           <button
             onClick={onOpenContact}
-            className="inline-flex items-center gap-2 bg-white text-[#0c0814] text-[13px] font-semibold px-4 py-2 rounded-full border-none cursor-pointer shadow-md hover:bg-purple-100 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(168,85,247,0.3)] transition-all group"
+            className="inline-flex items-center gap-2 bg-[var(--studio-accent)] text-[var(--studio-ink)] text-[13px] font-semibold px-4 py-2 rounded-full border-none cursor-pointer shadow-md hover:bg-[var(--studio-ink)] hover:text-[var(--studio-background)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(124,58,237,0.3)] transition-all group"
             id="nav-contact-btn"
           >
             <span>Start a project</span>
@@ -92,7 +92,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
 
           <button
             onClick={() => setMobileOpen(true)}
-            className="lg:hidden bg-transparent border-none text-white p-2 cursor-pointer flex items-center justify-center hover:text-purple-400 transition-colors"
+            className="lg:hidden bg-transparent border-none text-[var(--studio-ink)] p-2 cursor-pointer flex items-center justify-center hover:text-[var(--studio-accent-soft)] transition-colors"
             aria-label="Open menu"
           >
             <Menu size={24} />
@@ -102,17 +102,17 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
 
       {/* Mobile Drawer (Pure Tailwind) */}
       <div
-        className={`fixed top-0 left-0 w-full h-screen bg-[#08040f] z-[1000] flex flex-col p-8 transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed top-0 left-0 w-full h-screen bg-[var(--studio-background)] z-[1000] flex flex-col p-8 transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           mobileOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
         <div className="flex items-center justify-between mb-12">
-          <div className="text-[20px] font-extrabold uppercase text-white">
-            YOUR STUDIO<span className="text-purple-500 text-2xl">.</span>
+          <div className="text-[20px] font-extrabold uppercase text-[var(--studio-ink)]">
+            YOUR STUDIO<span className="text-[var(--studio-accent-soft)] text-2xl">.</span>
           </div>
           <button
             onClick={() => setMobileOpen(false)}
-            className="text-white p-2 bg-transparent border-none cursor-pointer hover:text-purple-400 transition-colors"
+            className="text-[var(--studio-ink)] p-2 bg-transparent border-none cursor-pointer hover:text-[var(--studio-accent-soft)] transition-colors"
             aria-label="Close menu"
           >
             <X size={28} />
@@ -124,11 +124,11 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
             <li key={item.label}>
               <a
                 href={item.href}
-                className="text-[32px] font-semibold text-white/80 hover:text-purple-400 hover:translate-x-2 transition-all flex items-center justify-between no-underline"
+                className="text-[32px] font-semibold text-[var(--studio-ink)]/80 hover:text-[var(--studio-accent-soft)] hover:translate-x-2 transition-all flex items-center justify-between no-underline"
                 onClick={(e) => handleLinkClick(e, item.href)}
               >
                 <span>{item.label}</span>
-                <ArrowUpRight size={24} className="text-purple-400 opacity-60" />
+                <ArrowUpRight size={24} className="text-[var(--studio-accent-soft)] opacity-60" />
               </a>
             </li>
           ))}
@@ -140,7 +140,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
               setMobileOpen(false);
               onOpenContact();
             }}
-            className="w-full flex items-center justify-center gap-2.5 bg-white text-[#0c0814] text-[15px] font-semibold p-3.5 rounded-full border-none cursor-pointer hover:bg-purple-100 transition-all"
+            className="w-full flex items-center justify-center gap-2.5 bg-[var(--studio-ink)] text-[var(--studio-background)] text-[15px] font-semibold p-3.5 rounded-full border-none cursor-pointer hover:bg-[var(--studio-tint)] transition-all"
           >
             <span>Start a project</span>
             <span>&rarr;</span>

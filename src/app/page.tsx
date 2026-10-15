@@ -84,7 +84,7 @@ export default function HomePage() {
 
       {/* Global Floating Toast (Pure Tailwind) */}
       <div
-        className={`fixed bottom-8 left-1/2 -translate-x-1/2 bg-[#0f1417] text-white px-6 py-3 rounded-full text-[14px] font-semibold shadow-2xl z-[9999] flex items-center gap-2.5 transition-all duration-300 pointer-events-none ${
+        className={`fixed bottom-8 left-1/2 -translate-x-1/2 bg-[var(--studio-background)] text-[var(--studio-ink)] px-6 py-3 rounded-full text-[14px] font-semibold shadow-2xl z-[9999] flex items-center gap-2.5 transition-all duration-300 pointer-events-none ${
           toastMessage ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
         }`}
       >
