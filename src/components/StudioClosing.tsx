@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ArrowRight, ArrowUp, ArrowUpRight } from "lucide-react";
+import OurProcess from "./OurProcess";
 import styles from "./StudioClosing.module.css";
 
 export default function StudioClosing({ onOpenContact }: { onOpenContact: () => void }) {
@@ -13,29 +14,37 @@ export default function StudioClosing({ onOpenContact }: { onOpenContact: () => 
       <section id="studio" className={styles.studio} aria-labelledby="studio-heading">
         <div className={styles.studioInner}>
           <div className={styles.artwork}>
-            <Image src="/images/studio/studio-artwork.webp" alt="" fill sizes="(max-width: 899px) 100vw, 50vw" className={styles.studioImage} />
-            <span className={styles.artworkCaption}>People.<br />Ideas.<br />Creativity.<br />Impact.</span>
+            <Image src="/images/studio/studio-office.webp" alt="Conceptual creative studio meeting room with purple lighting, an olive tree, and the words ‘Good design builds better businesses’ on the wall." fill sizes="(max-width: 899px) 100vw, 46vw" className={styles.studioImage} />
           </div>
           <div className={styles.studioCopy}>
-            <p className={styles.label}>Our studio</p>
-            <h2 id="studio-heading" className={styles.studioTitle}>
-              <span>Small studio mindset.</span>
-              <span className={styles.accent}>Big creative ambition.</span>
-            </h2>
-            <p className={styles.description}>
-              We are a multidisciplinary creative studio passionate about building meaningful digital experiences and brand stories.
-              We work closely with each client, combining strategic thinking, creative design and modern technology to turn ideas into impact.
-            </p>
-            <button type="button" className={styles.aboutButton} onClick={() => setAboutOpen(!aboutOpen)} aria-expanded={aboutOpen} aria-controls="studio-details">
-              {aboutOpen ? "Less about us" : "More about us"}<ArrowRight size={17} strokeWidth={1.5} aria-hidden="true" />
-            </button>
-            <div id="studio-details" className={styles.aboutDetails} hidden={!aboutOpen}>
-              <p>We start by listening, then bring the right mix of design, development, 3D and marketing to your project. You work directly with the people shaping the ideas, with a clear purpose behind every creative decision.</p>
-              <button type="button" className={styles.textButton} onClick={onOpenContact}>Meet your next creative partner<ArrowUpRight size={17} aria-hidden="true" /></button>
+            <div className={styles.studioStory}>
+              <p className={styles.label}>About us</p>
+              <h2 id="studio-heading" className={styles.studioTitle}>
+                <span>A small studio</span>
+                <span className={styles.ambition}><span className={styles.accent}>with</span> big ambitions.</span>
+              </h2>
+              <p className={styles.description}>
+                We are a multidisciplinary creative studio passionate about building impactful digital experiences.
+                We work closely with each client, combining strategic thinking, creative design and modern technology to turn ideas into real results.
+              </p>
+              <button type="button" className={styles.aboutButton} onClick={() => setAboutOpen(!aboutOpen)} aria-expanded={aboutOpen} aria-controls="studio-details">
+                {aboutOpen ? "Less about us" : "More about us"}<ArrowRight size={17} strokeWidth={1.5} aria-hidden="true" />
+              </button>
+              <div id="studio-details" className={styles.aboutDetails} hidden={!aboutOpen}>
+                <p>We start by listening, then bring the right mix of design, development, 3D and marketing to your project. You work directly with the people shaping the ideas, with a clear purpose behind every creative decision.</p>
+                <button type="button" className={styles.textButton} onClick={onOpenContact}>Meet your next creative partner<ArrowUpRight size={17} aria-hidden="true" /></button>
+              </div>
             </div>
+            <dl className={styles.stats} aria-label="Studio at a glance">
+              <div><dt>Happy Clients</dt><dd>50+</dd></div>
+              <div><dt>Projects Completed</dt><dd>100+</dd></div>
+              <div><dt>Years Experience</dt><dd>4+</dd></div>
+            </dl>
           </div>
         </div>
       </section>
+
+      <OurProcess />
 
       <section id="contact" className={styles.contact} aria-labelledby="contact-heading">
         <Image src="/images/studio/contact-artwork.webp" alt="" fill sizes="100vw" className={styles.contactImage} />
