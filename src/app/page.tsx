@@ -5,17 +5,15 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ServiceDisciplines from "@/components/ServiceDisciplines";
 import SelectedWork from "@/components/SelectedWork";
+import StudioClosing from "@/components/StudioClosing";
 import CaseModal from "@/components/CaseModal";
 import ContactModal from "@/components/ContactModal";
-import Footer from "@/components/Footer";
 import type { CaseStudy } from "@/types/caseStudy";
-import { FEATURED_PROJECTS } from "@/data/featuredProjects";
 import { CheckCircle2 } from "lucide-react";
 
 export default function HomePage() {
   const [selectedCase, setSelectedCase] = useState<CaseStudy | null>(null);
   const [contactOpen, setContactOpen] = useState(false);
-  const [contactCity, setContactCity] = useState<string | undefined>(undefined);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const showToast = (msg: string) => {
@@ -25,16 +23,8 @@ export default function HomePage() {
     }, 3200);
   };
 
-  const handleOpenContact = (city?: string) => {
-    setContactCity(city);
+  const handleOpenContact = () => {
     setContactOpen(true);
-  };
-
-  const handleSelectCaseById = (id: string) => {
-    const found = FEATURED_PROJECTS.find((c) => c.id === id);
-    if (found) {
-      setSelectedCase(found);
-    }
   };
 
   return (
@@ -50,11 +40,7 @@ export default function HomePage() {
       {/* Featured creative concepts */}
       <SelectedWork onSelectCase={setSelectedCase} />
 
-      {/* Footer with Comprehensive Sitemap & Inquiry Bar */}
-      <Footer
-        onOpenContact={(dept) => handleOpenContact(dept)}
-        onSelectCaseById={handleSelectCaseById}
-      />
+      <StudioClosing onOpenContact={handleOpenContact} />
 
       {/* Interactive Case Study Detail Modal */}
       <CaseModal
@@ -66,7 +52,6 @@ export default function HomePage() {
       <ContactModal
         isOpen={contactOpen}
         onClose={() => setContactOpen(false)}
-        defaultCity={contactCity}
         onSuccessToast={showToast}
       />
 
