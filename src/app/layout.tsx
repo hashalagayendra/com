@@ -2,25 +2,23 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Bou – The Brand Company",
+  title: "YOUR STUDIO. — Creative Digital Agency",
   description:
-    "Bou is a holistic brand company, working with 200+ trendsetting brands across marketing, design, communications & PR, and web development.",
+    "We design brands, websites, 3D visuals and digital campaigns that make a real impact.",
   keywords: [
-    "Bou",
-    "Brand Agency",
-    "Design Agency London",
-    "Design Agency Helsinki",
-    "Creative Marketing",
+    "YOUR STUDIO",
+    "Creative Digital Agency",
+    "3D Visuals",
+    "Brand Design",
     "Web Development",
-    "PR Agency",
+    "Digital Campaigns",
   ],
-  authors: [{ name: "Bou" }],
+  authors: [{ name: "YOUR STUDIO" }],
   openGraph: {
-    title: "Bou – The Brand Company",
+    title: "YOUR STUDIO. — Creative ideas Built to stand out",
     description:
-      "Bou is a holistic brand company, working with 200+ trendsetting brands around Europe and the US.",
-    url: "https://wearebou.com",
-    siteName: "Bou",
+      "We design brands, websites, 3D visuals and digital campaigns that make a real impact.",
+    siteName: "YOUR STUDIO",
     locale: "en_US",
     type: "website",
   },
@@ -35,6 +33,12 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body>{children}</body>
     </html>

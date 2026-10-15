@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import { X, CheckCircle, Send } from "lucide-react";
-import "../styles/contact.css";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -68,112 +67,100 @@ export default function ContactModal({
   };
 
   return (
-    <div className="contact-modal-backdrop" onClick={onClose} role="dialog" aria-modal="true">
-      <div className="contact-modal-panel" onClick={(e) => e.stopPropagation()}>
+    <div
+      className="fixed inset-0 bg-[#0c1012]/80 backdrop-blur-md z-[1000] flex items-center justify-center p-4 md:p-6 overflow-y-auto"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        className="relative w-full max-w-[640px] max-h-[92vh] bg-white rounded-3xl p-6 sm:p-10 shadow-2xl my-auto overflow-y-auto animate-in fade-in zoom-in-95 duration-200"
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           onClick={onClose}
-          style={{
-            position: "absolute",
-            top: "24px",
-            right: "24px",
-            background: "#F4F6F5",
-            border: "none",
-            width: "36px",
-            height: "36px",
-            borderRadius: "50%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-          }}
+          className="absolute top-6 right-6 w-9 h-9 rounded-full bg-[#f4f6f5] hover:bg-[#eaefec] flex items-center justify-center text-[#0f1417] transition-all cursor-pointer"
           aria-label="Close contact modal"
         >
           <X size={18} />
         </button>
 
         {submitted ? (
-          <div className="contact-success-state">
-            <div
-              style={{
-                width: "64px",
-                height: "64px",
-                borderRadius: "50%",
-                background: "#E6F7ED",
-                color: "#15803D",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
+          <div className="py-12 flex flex-col items-center text-center">
+            <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-6">
               <CheckCircle size={36} />
             </div>
-            <h3 style={{ fontSize: "28px", fontWeight: 800, color: "#0F1417" }}>Message Received</h3>
-            <p style={{ color: "#55626A", maxWidth: "400px", lineHeight: "1.5" }}>
+            <h3 className="text-[28px] font-extrabold text-[#0f1417] mb-2">
+              Message Received
+            </h3>
+            <p className="text-[15px] text-[#55626a] max-w-[400px] leading-relaxed">
               Thank you {name ? name : "for writing"}. Our partnerships team in{" "}
               {defaultCity ? defaultCity : "Helsinki & London"} will get back to you shortly.
             </p>
           </div>
         ) : (
           <>
-            <div>
-              <span style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.08em", color: "#8E9CA3", textTransform: "uppercase" }}>
-                Let's Build Together
+            <div className="mb-6">
+              <span className="text-[12px] font-bold tracking-wider uppercase text-[#8e9ca3] block mb-1">
+                Let&apos;s Build Together
               </span>
-              <h2 style={{ fontSize: "32px", fontWeight: 800, letterSpacing: "-0.025em", color: "#0F1417", marginTop: "4px" }}>
+              <h2 className="text-[28px] sm:text-[34px] font-extrabold tracking-tight text-[#0f1417]">
                 Start a conversation
               </h2>
-              <p style={{ fontSize: "15px", color: "#55626A", marginTop: "6px" }}>
+              <p className="text-[15px] text-[#55626a] mt-1.5">
                 Whether you’re launching something new or transforming an established category leader.
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
-                <div className="contact-form-group">
-                  <label className="contact-label">Your Name *</label>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[12.5px] font-bold text-[#2d393e]">Your Name *</label>
                   <input
                     type="text"
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="e.g. Maya Lin"
-                    className="contact-input"
+                    className="w-full px-4 py-2.5 rounded-xl border border-[#cbd2ce] bg-[#f4f6f5] text-[#0f1417] text-[14.5px] focus:outline-none focus:border-[#0f1417] transition-all"
                   />
                 </div>
-                <div className="contact-form-group">
-                  <label className="contact-label">Work Email *</label>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[12.5px] font-bold text-[#2d393e]">Work Email *</label>
                   <input
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="maya@company.com"
-                    className="contact-input"
+                    className="w-full px-4 py-2.5 rounded-xl border border-[#cbd2ce] bg-[#f4f6f5] text-[#0f1417] text-[14.5px] focus:outline-none focus:border-[#0f1417] transition-all"
                   />
                 </div>
               </div>
 
-              <div className="contact-form-group">
-                <label className="contact-label">Company / Organization</label>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-bold text-[#2d393e]">Company / Organization</label>
                 <input
                   type="text"
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
                   placeholder="e.g. Acme Tech"
-                  className="contact-input"
+                  className="w-full px-4 py-2.5 rounded-xl border border-[#cbd2ce] bg-[#f4f6f5] text-[#0f1417] text-[14.5px] focus:outline-none focus:border-[#0f1417] transition-all"
                 />
               </div>
 
-              <div className="contact-form-group">
-                <label className="contact-label">What can we help you build?</label>
-                <div className="contact-services-pills">
+              <div className="flex flex-col gap-2">
+                <label className="text-[12.5px] font-bold text-[#2d393e]">What can we help you build?</label>
+                <div className="flex items-center gap-2 flex-wrap">
                   {servicesOptions.map((svc) => (
                     <button
                       type="button"
                       key={svc}
                       onClick={() => toggleService(svc)}
-                      className={`contact-pill-selectable ${
-                        selectedServices.includes(svc) ? "selected" : ""
+                      className={`text-[12px] font-semibold px-3.5 py-1.5 rounded-full border transition-all cursor-pointer ${
+                        selectedServices.includes(svc)
+                          ? "bg-[#0f1417] text-white border-[#0f1417]"
+                          : "bg-[#f4f6f5] text-[#4a585f] border-[#cbd2ce] hover:border-[#0f1417]"
                       }`}
                     >
                       {svc}
@@ -182,21 +169,20 @@ export default function ContactModal({
                 </div>
               </div>
 
-              <div className="contact-form-group">
-                <label className="contact-label">Tell us about your project</label>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-bold text-[#2d393e]">Tell us about your project</label>
                 <textarea
                   rows={4}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Timeline, goals, scope, or questions..."
-                  className="contact-textarea"
+                  className="w-full px-4 py-2.5 rounded-xl border border-[#cbd2ce] bg-[#f4f6f5] text-[#0f1417] text-[14.5px] focus:outline-none focus:border-[#0f1417] transition-all resize-none"
                 />
               </div>
 
               <button
                 type="submit"
-                className="btn-pill btn-pill-light"
-                style={{ width: "100%", justifyContent: "center", padding: "14px 24px", marginTop: "12px" }}
+                className="w-full inline-flex items-center justify-center gap-2 bg-[#0f1417] text-white py-3.5 px-6 rounded-full text-[15px] font-semibold hover:bg-[#232b30] transition-all shadow-md mt-2 cursor-pointer"
               >
                 <span>Send message</span>
                 <Send size={16} />

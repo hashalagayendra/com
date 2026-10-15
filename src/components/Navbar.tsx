@@ -2,9 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import BouLogo from "./BouLogo";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import "../styles/navbar.css";
 
 interface NavbarProps {
   onOpenContact: () => void;
@@ -16,7 +14,8 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      // Appear once user scrolls down past the hero
+      setScrolled(window.scrollY > 350);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -25,25 +24,54 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
   const navLinks = [
     { label: "Work", href: "#work" },
     { label: "Services", href: "#services" },
-    { label: "Clients", href: "#clients" },
-    { label: "About", href: "#about" },
-    { label: "Careers", href: "#careers", indicator: true },
-    { label: "Bou & Co.", href: "#bou-and-co" },
+    { label: "Studio", href: "#about" },
+    { label: "Journal", href: "#clients" },
+    { label: "Contact", href: "#contact" },
   ];
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href === "#contact") {
+      e.preventDefault();
+      onOpenContact();
+      setMobileOpen(false);
+      return;
+    }
+    const targetId = href.replace("#", "");
+    const el = document.getElementById(targetId);
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth" });
+      setMobileOpen(false);
+    }
+  };
+
   return (
-    <nav className={`navbar-wrapper ${scrolled ? "navbar-scrolled" : ""}`}>
-      <div className="container navbar-container">
-        <Link href="/" className="navbar-brand">
-          <BouLogo height={32} />
+    <nav
+      className={`fixed top-0 left-0 w-full z-[900] transition-all duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        scrolled
+          ? "translate-y-0 opacity-100 pointer-events-auto bg-[#090511]/90 backdrop-blur-xl border-b border-purple-500/20 shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+          : "-translate-y-full opacity-0 pointer-events-none"
+      }`}
+      aria-label="Sticky Navigation"
+    >
+      <div className="w-full max-w-[1440px] mx-auto px-6 md:px-14 flex items-center justify-between h-[72px]">
+        <Link
+          href="#home"
+          className="text-[19px] font-extrabold tracking-tight uppercase text-white inline-flex items-baseline no-underline hover:opacity-85 transition-opacity"
+        >
+          YOUR STUDIO
+          <span className="text-purple-500 text-[22px] leading-none ml-[1px] drop-shadow-[0_0_10px_rgba(168,85,247,0.8)]">
+            .
+          </span>
         </Link>
 
-        <ul className="navbar-links">
+        <ul className="hidden lg:flex items-center gap-9 list-none m-0 p-0">
           {navLinks.map((item) => (
-            <li key={item.label} className="nav-item">
+            <li key={item.label} className="relative">
               <a
                 href={item.href}
-                className={`nav-link ${item.indicator ? "has-indicator" : ""}`}
+                onClick={(e) => handleLinkClick(e, item.href)}
+                className="text-white/80 hover:text-white text-[14px] font-medium tracking-tight transition-colors py-1.5 no-underline block"
               >
                 {item.label}
               </a>
@@ -51,21 +79,21 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
           ))}
         </ul>
 
-        <div className="navbar-actions">
+        <div className="flex items-center gap-4">
           <button
             onClick={onOpenContact}
-            className="btn-nav-contact"
+            className="inline-flex items-center gap-2 bg-white text-[#0c0814] text-[13px] font-semibold px-4 py-2 rounded-full border-none cursor-pointer shadow-md hover:bg-purple-100 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(168,85,247,0.3)] transition-all group"
             id="nav-contact-btn"
           >
-            <span>Contact</span>
-            <div className="contact-circle">
-              <ArrowUpRight size={15} strokeWidth={2.5} />
-            </div>
+            <span>Start a project</span>
+            <span className="text-[14px] font-bold inline-block transition-transform duration-200 group-hover:translate-x-1">
+              &rarr;
+            </span>
           </button>
 
           <button
             onClick={() => setMobileOpen(true)}
-            className="mobile-toggle-btn"
+            className="lg:hidden bg-transparent border-none text-white p-2 cursor-pointer flex items-center justify-center hover:text-purple-400 transition-colors"
             aria-label="Open menu"
           >
             <Menu size={24} />
@@ -73,49 +101,50 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
-      <div className={`mobile-drawer ${mobileOpen ? "open" : ""}`}>
-        <div className="mobile-drawer-header">
-          <Link href="/" onClick={() => setMobileOpen(false)}>
-            <BouLogo height={32} />
-          </Link>
+      {/* Mobile Drawer (Pure Tailwind) */}
+      <div
+        className={`fixed top-0 left-0 w-full h-screen bg-[#08040f] z-[1000] flex flex-col p-8 transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          mobileOpen ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
+        <div className="flex items-center justify-between mb-12">
+          <div className="text-[20px] font-extrabold uppercase text-white">
+            YOUR STUDIO<span className="text-purple-500 text-2xl">.</span>
+          </div>
           <button
             onClick={() => setMobileOpen(false)}
-            style={{ color: "#FFFFFF", padding: "8px" }}
+            className="text-white p-2 bg-transparent border-none cursor-pointer hover:text-purple-400 transition-colors"
             aria-label="Close menu"
           >
             <X size={28} />
           </button>
         </div>
 
-        <ul className="mobile-nav-links">
+        <ul className="flex flex-col gap-6 list-none p-0 m-0">
           {navLinks.map((item) => (
             <li key={item.label}>
               <a
                 href={item.href}
-                className="mobile-nav-link"
-                onClick={() => setMobileOpen(false)}
+                className="text-[32px] font-semibold text-white/80 hover:text-purple-400 hover:translate-x-2 transition-all flex items-center justify-between no-underline"
+                onClick={(e) => handleLinkClick(e, item.href)}
               >
                 <span>{item.label}</span>
-                <ArrowUpRight size={24} opacity={0.5} />
+                <ArrowUpRight size={24} className="text-purple-400 opacity-60" />
               </a>
             </li>
           ))}
         </ul>
 
-        <div style={{ marginTop: "auto", paddingTop: "32px" }}>
+        <div className="mt-auto pt-8">
           <button
             onClick={() => {
               setMobileOpen(false);
               onOpenContact();
             }}
-            className="btn-pill btn-pill-dark"
-            style={{ width: "100%", justifyContent: "space-between" }}
+            className="w-full flex items-center justify-center gap-2.5 bg-white text-[#0c0814] text-[15px] font-semibold p-3.5 rounded-full border-none cursor-pointer hover:bg-purple-100 transition-all"
           >
             <span>Start a project</span>
-            <div className="icon-circle">
-              <ArrowUpRight size={16} />
-            </div>
+            <span>&rarr;</span>
           </button>
         </div>
       </div>

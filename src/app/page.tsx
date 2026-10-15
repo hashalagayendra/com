@@ -57,14 +57,11 @@ export default function HomePage() {
 
   return (
     <main style={{ minHeight: "100vh", position: "relative" }}>
-      {/* Top Banner */}
-      <AnnouncementBar />
-
-      {/* Sticky Navigation Bar */}
+      {/* Sticky Navigation Bar (appears on scroll) */}
       <Navbar onOpenContact={() => handleOpenContact()} />
 
-      {/* Cinematic Dark Hero */}
-      <Hero onShowToast={showToast} />
+      {/* Cinematic Studio Hero (Exact reference match) */}
+      <Hero onShowToast={showToast} onOpenContact={() => handleOpenContact()} />
 
       {/* Editorial Benchmark Agency Statement */}
       <Statement onOpenAbout={handleOpenAbout} />
@@ -104,9 +101,13 @@ export default function HomePage() {
         onSuccessToast={showToast}
       />
 
-      {/* Global Floating Toast */}
-      <div className={`toast-notice ${toastMessage ? "show" : ""}`}>
-        <CheckCircle2 size={18} color="#52E09B" />
+      {/* Global Floating Toast (Pure Tailwind) */}
+      <div
+        className={`fixed bottom-8 left-1/2 -translate-x-1/2 bg-[#0f1417] text-white px-6 py-3 rounded-full text-[14px] font-semibold shadow-2xl z-[9999] flex items-center gap-2.5 transition-all duration-300 pointer-events-none ${
+          toastMessage ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+        }`}
+      >
+        <CheckCircle2 size={18} className="text-emerald-400" />
         <span>{toastMessage}</span>
       </div>
     </main>
