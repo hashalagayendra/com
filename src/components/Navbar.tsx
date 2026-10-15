@@ -84,17 +84,16 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
             aria-hidden="true"
           />
 
-          {/* Left: Compact Studio Logotype + Animated Purple Dot */}
+          {/* Left: Compact Studio Logotype */}
           <Link
             href="#home"
-            className="flex items-center gap-1.5 text-[14px] sm:text-[15px] font-bold tracking-tight uppercase text-white hover:text-purple-200 transition-colors pl-1 no-underline shrink-0"
+            className="flex items-baseline text-[14px] sm:text-[15px] font-bold tracking-tight uppercase text-white hover:text-purple-200 transition-colors pl-1 no-underline shrink-0"
             title="YOUR STUDIO"
           >
             <span>YOUR STUDIO</span>
-            <span
-              className="w-1.5 h-1.5 rounded-full bg-[#a78bfa] shadow-[0_0_8px_#a855f7] inline-block animate-pulse"
-              aria-hidden="true"
-            />
+            <span className="text-[var(--studio-accent-soft)] text-[16px] leading-none ml-[1px]">
+              .
+            </span>
           </Link>
 
           {/* Center: Segmented Floating Track Navigation (Desktop) */}
