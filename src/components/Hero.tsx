@@ -79,6 +79,18 @@ export default function Hero(props?: HeroProps) {
             </li>
             <li>
               <a
+                href="#services"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleScrollTo("services");
+                }}
+                className="text-[13px] lg:text-[13.5px] font-normal text-[var(--studio-ink)]/75 hover:text-[var(--studio-ink)] transition-colors tracking-normal no-underline"
+              >
+                Services
+              </a>
+            </li>
+            <li>
+              <a
                 href="#about"
                 onClick={(e) => {
                   e.preventDefault();

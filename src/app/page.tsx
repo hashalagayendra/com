@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import ServiceDisciplines from "@/components/ServiceDisciplines";
 import SelectedWork from "@/components/SelectedWork";
 import CaseModal from "@/components/CaseModal";
 import ContactModal from "@/components/ContactModal";
@@ -43,6 +44,8 @@ export default function HomePage() {
 
       {/* Cinematic Studio Hero (Exact reference match) */}
       <Hero onShowToast={showToast} onOpenContact={() => handleOpenContact()} />
+
+      <ServiceDisciplines onOpenContact={() => handleOpenContact()} />
 
       {/* Featured creative concepts */}
       <SelectedWork onSelectCase={setSelectedCase} />

@@ -23,6 +23,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
 
   const navLinks = [
     { label: "Work", href: "#work" },
+    { label: "Services", href: "#services" },
     { label: "Studio", href: "#about" },
     { label: "Contact", href: "#contact" },
   ];
