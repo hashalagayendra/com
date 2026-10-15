@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 interface HeroProps {
   onShowToast?: (message: string) => void;
@@ -166,22 +166,34 @@ export default function Hero(props?: HeroProps) {
             We design brands, websites, 3D visuals and digital campaigns that make a real impact.
           </p>
 
-          {/* Explore our work button (Circular arrow + text label) */}
+          {/* Luxury Glassmorphic Scroll to Explore Control */}
           <button
             onClick={() => handleScrollTo("work")}
-            className="inline-flex items-center gap-3.5 sm:gap-4 mt-7 sm:mt-9 lg:mt-10 group bg-transparent border-none cursor-pointer p-0 text-left transition-transform duration-200 hover:translate-x-1"
-            aria-label="Explore our work"
+            className="group inline-flex items-center gap-3.5 mt-8 sm:mt-10 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/15 hover:border-purple-400/50 backdrop-blur-md text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_28px_rgba(167,139,250,0.3)] cursor-pointer"
+            aria-label="Scroll down to explore featured work"
           >
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-[var(--studio-ink)]/35 flex items-center justify-center transition-all duration-300 group-hover:border-[var(--studio-ink)] group-hover:bg-[var(--studio-ink)]/10 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]">
-              <ArrowRight
-                size={16}
-                className="text-[var(--studio-ink)]/90 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-[var(--studio-ink)]"
-                strokeWidth={1.75}
-              />
+            {/* Precision Micro-engineered Mouse Capsule */}
+            <div className="relative w-5 h-8 sm:w-[22px] sm:h-[34px] rounded-full border-[1.5px] border-white/50 group-hover:border-white transition-colors flex justify-center pt-1.5 overflow-hidden bg-white/[0.02]">
+              {/* Subtle glass reflection accent */}
+              <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-b from-white/30 to-transparent pointer-events-none" />
+              {/* Animated glowing wheel pill */}
+              <div className="w-[3px] h-[6px] rounded-full bg-gradient-to-b from-white via-purple-200 to-purple-400 shadow-[0_0_8px_rgba(167,139,250,0.85)] animate-mouse-scroll" />
             </div>
-            <span className="studio-action text-[13.5px] sm:text-[14.5px] text-[var(--studio-ink)]/90 transition-colors duration-300 group-hover:text-[var(--studio-ink)]">
-              Explore our work
-            </span>
+
+            {/* Typography & Downward Directional Indicator */}
+            <div className="flex flex-col">
+              <span className="studio-action text-[13px] sm:text-[14px] text-white flex items-center gap-1.5 group-hover:text-purple-200 transition-colors">
+                Explore our work
+                <ChevronDown
+                  size={14}
+                  className="text-purple-300/80 group-hover:text-white group-hover:translate-y-0.5 transition-transform duration-300"
+                  strokeWidth={2}
+                />
+              </span>
+              <span className="studio-label text-[9px] text-[#a78bfa]/75 tracking-[0.2em] uppercase">
+                Scroll to view
+              </span>
+            </div>
           </button>
         </div>
       </div>
@@ -219,9 +231,9 @@ export default function Hero(props?: HeroProps) {
       <footer className="relative z-30 w-full px-6 sm:px-10 md:px-14 lg:px-20 pb-6 sm:pb-8 flex-shrink-0 flex items-center justify-between">
         {/* Left: SCROLL indicator */}
         <button
-          onClick={() => handleScrollTo("about")}
+          onClick={() => handleScrollTo("work")}
           className="inline-flex items-center bg-transparent border-none cursor-pointer p-0 text-[var(--studio-ink)]/55 hover:text-[var(--studio-ink)] transition-colors group"
-          aria-label="Scroll down"
+          aria-label="Scroll down to work"
         >
           <span className="text-[9.5px] sm:text-[10px] font-medium tracking-[0.24em] sm:tracking-[0.28em] uppercase">
             SCROLL

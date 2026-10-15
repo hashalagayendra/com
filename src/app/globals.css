@@ -72,3 +72,25 @@ button, input, select, textarea {
     --studio-copy-weight: 500;
   }
 }
+
+@keyframes mouseScroll {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(8px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+}
+
+.animate-mouse-scroll {
+  animation: mouseScroll 1.7s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
